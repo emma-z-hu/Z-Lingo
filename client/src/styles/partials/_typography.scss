@@ -1,0 +1,41 @@
+@use './variables' as *;
+
+@font-face {
+    font-family: 'Avenir';
+    src: 
+    url('src/assets/Font/AvenirNextLTPro-Bold.otf') format('opentype'), 
+    url('src/assets/Font/AvenirNextLTProBold.ttf') format('truetype');
+    font-weight: $font-weight-bold;
+    font-style: normal;
+    font-display: wrap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('src/assets/Font/AvenirNextLTPro-Demi.otf') format('opentype'), 
+    url('src/assets/Font/AvenirNextLTProDemi.ttf') format('truetype');
+    font-weight: $font-weight-demi;
+    font-style: normal;
+    font-display: wrap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('src/assets/Font/AvenirNextLTPro-Regular.otf') format('opentype'), 
+    url('src/assets/Font/AvenirNextLTPro.ttf') format('truetype');
+    font-weight: $font-weight-regular;
+    font-style: normal;
+    font-display: wrap;
+}
+
+body, input, textarea, button {
+    font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
+
+p, span, a, div {
+    font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
