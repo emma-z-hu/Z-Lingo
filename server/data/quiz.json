@@ -1,0 +1,547 @@
+[
+    {
+      "id": 1,
+      "slang": "Rn",
+      "question": "What does 'Rn' mean?",
+      "options": ["Right now", "Really nice", "Red night", "Relax now"],
+      "correctOption": "Right now",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "slang": "Lit",
+      "question": "What does 'Lit' mean?",
+      "options": ["Really cool", "On fire", "Drunk", "Very tired"],
+      "correctOption": "Really cool",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "slang": "Salty",
+      "question": "What does 'Salty' mean?",
+      "options": ["Moody", "Spicy", "Sweaty", "Happy"],
+      "correctOption": "Moody",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 4,
+      "slang": "All g",
+      "question": "What does 'All g' mean?",
+      "options": ["All good", "All great", "All gone", "All going"],
+      "correctOption": "All good",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "slang": "Tbh",
+      "question": "What does 'Tbh' mean?",
+      "options": ["To be honest", "Too bad, huh?", "Take back home", "To be held"],
+      "correctOption": "To be honest",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "slang": "Shipping",
+      "question": "What does 'Shipping' mean?",
+      "options": ["Making a couple name", "Delivering goods", "Starting a trip", "Writing a story"],
+      "correctOption": "Making a couple name",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 7,
+      "slang": "Dab",
+      "question": "What does 'Dab' mean?",
+      "options": ["A dance move", "A small amount", "To hit someone", "To cry"],
+      "correctOption": "A dance move",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 8,
+      "slang": "Lol",
+      "question": "What does 'Lol' mean?",
+      "options": ["Laughing out loud", "Lots of love", "Lack of logic", "Land of lakes"],
+      "correctOption": "Laughing out loud",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "slang": "Fam",
+      "question": "What does 'Fam' mean?",
+      "options": ["Family or close friends", "Famous", "Familiar", "Fast and marvelous"],
+      "correctOption": "Family or close friends",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 10,
+      "slang": "Throwing shade",
+      "question": "What does 'Throwing shade' mean?",
+      "options": ["Speaking negatively", "Creating a shadow", "Giving a compliment", "Blocking someone"],
+      "correctOption": "Speaking negatively",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 11,
+      "slang": "Glow up",
+      "question": "What does 'Glow up' mean?",
+      "options": ["Transformation or makeover", "To light up", "To gain weight", "To burn something"],
+      "correctOption": "Transformation or makeover",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "slang": "Cancel culture",
+      "question": "What does 'Cancel culture' mean?",
+      "options": ["Shaming someone for their actions", "Quitting a job", "Canceling a plan", "Pausing a show"],
+      "correctOption": "Shaming someone for their actions",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 13,
+      "slang": "CEO",
+      "question": "What does 'CEO' mean?",
+      "options": ["A pro or master", "Company executive", "Cheating on exam", "Creating energy opportunities"],
+      "correctOption": "A pro or master",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 14,
+      "slang": "Stan",
+      "question": "What does 'Stan' mean?",
+      "options": ["Fan and stalker", "Short for Stanley", "A supportive friend", "Someone from another country"],
+      "correctOption": "Fan and stalker",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 15,
+      "slang": "W",
+      "question": "What does 'W' mean?",
+      "options": ["Win", "Wrong", "Whisper", "Wild"],
+      "correctOption": "Win",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 16,
+      "slang": "E-girl or E-boy",
+      "question": "What does 'E-girl' or 'E-boy' mean?",
+      "options": ["Goth or emo internet persona", "Electronic musician", "Someone who loves tech", "Extreme gamer"],
+      "correctOption": "Goth or emo internet persona",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 17,
+      "slang": "Ghosting",
+      "question": "What does 'Ghosting' mean?",
+      "options": ["Ignoring someone", "Wearing a costume", "Sending scary messages", "Frightening someone"],
+      "correctOption": "Ignoring someone",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 18,
+      "slang": "Dank",
+      "question": "What does 'Dank' mean?",
+      "options": ["High quality", "Bad smell", "A deep cave", "Very cold"],
+      "correctOption": "High quality",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 19,
+      "slang": "Boujee",
+      "question": "What does 'Boujee' mean?",
+      "options": ["Fancy or extravagant", "Messy", "Very basic", "Lazy"],
+      "correctOption": "Fancy or extravagant",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 20,
+      "slang": "Big Yikes",
+      "question": "What does 'Big Yikes' mean?",
+      "options": ["Embarrassment", "Excitement", "Surprise", "Fear"],
+      "correctOption": "Embarrassment",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 21,
+      "slang": "Cap",
+      "question": "What does 'Cap' mean?",
+      "options": ["A lie", "A hat", "A limit", "A mistake"],
+      "correctOption": "A lie",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 22,
+      "slang": "Finna",
+      "question": "What does 'Finna' mean?",
+      "options": ["Going to", "About to fight", "Feeling happy", "Hoping to"],
+      "correctOption": "Going to",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 23,
+      "slang": "High-key",
+      "question": "What does 'High-key' mean?",
+      "options": ["Openly", "Secretly", "Barely", "Loudly"],
+      "correctOption": "Openly",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 24,
+      "slang": "Simp",
+      "question": "What does 'Simp' mean?",
+      "options": ["Doing too much for someone", "Acting foolish", "Trying too hard", "Being lazy"],
+      "correctOption": "Doing too much for someone",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 25,
+      "slang": "Cheugy",
+      "question": "What does 'Cheugy' mean?",
+      "options": ["Not trendy", "Very cool", "Stylish", "Old-fashioned"],
+      "correctOption": "Not trendy",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 26,
+      "slang": "Camp",
+      "question": "What does 'Camp' mean?",
+      "options": ["Ironically trendy", "A summer camp", "A group of people", "Over the top"],
+      "correctOption": "Ironically trendy",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 27,
+      "slang": "TFW",
+      "question": "What does 'TFW' mean?",
+      "options": ["That feeling when", "Too funny when", "Trying for win", "Totally fine with"],
+      "correctOption": "That feeling when",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 28,
+      "slang": "Snack",
+      "question": "What does 'Snack' mean?",
+      "options": ["Attractive person", "A small meal", "Short nap", "A break"],
+      "correctOption": "Attractive person",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 29,
+      "slang": "Woke",
+      "question": "What does 'Woke' mean?",
+      "options": ["Politically aware", "Awake", "Excited", "Confused"],
+      "correctOption": "Politically aware",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 30,
+      "slang": "Take Several Seats",
+      "question": "What does 'Take Several Seats' mean?",
+      "options": ["Stop being annoying", "Sit down", "Take a break", "Move away"],
+      "correctOption": "Stop being annoying",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 31,
+      "slang": "Sip tea",
+      "question": "What does 'Sip tea' mean?",
+      "options": ["Listening to gossip", "Drinking tea", "Staying calm", "Enjoying a snack"],
+      "correctOption": "Listening to gossip",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 32,
+      "slang": "Drip",
+      "question": "What does 'Drip' mean?",
+      "options": ["Cool style", "Leaking water", "Losing energy", "Feeling tired"],
+      "correctOption": "Cool style",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 33,
+      "slang": "Sheesh",
+      "question": "What does 'Sheesh' mean?",
+      "options": ["Hype up someone", "Complain", "Laugh", "Cry"],
+      "correctOption": "Hype up someone",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 34,
+      "slang": "Bop",
+      "question": "What does 'Bop' mean?",
+      "options": ["Exceptionally good song", "Hitting someone", "Dancing badly", "Making a mistake"],
+      "correctOption": "Exceptionally good song",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 35,
+      "slang": "Rent free living",
+      "question": "What does 'Rent free living' mean?",
+      "options": ["Living in someone's mind", "Paying no rent", "Being carefree", "Living at home"],
+      "correctOption": "Living in someone's mind",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 36,
+      "slang": "Iykyk",
+      "question": "What does 'Iykyk' mean?",
+      "options": ["If you know, you know", "In your knowledge", "Is you kind yet", "I yell kindly you"],
+      "correctOption": "If you know, you know",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 37,
+      "slang": "Hits different",
+      "question": "What does 'Hits different' mean?",
+      "options": ["Better and unique", "Feels strange", "Hurts more", "Sounds worse"],
+      "correctOption": "Better and unique",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 38,
+      "slang": "Vibe check",
+      "question": "What does 'Vibe check' mean?",
+      "options": ["Checking someone's mood", "Starting a party", "Checking time", "Ignoring someone"],
+      "correctOption": "Checking someone's mood",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 39,
+      "slang": "Catch these hands",
+      "question": "What does 'Catch these hands' mean?",
+      "options": ["Begin a fight", "Catch a ball", "Greet someone", "Applaud"],
+      "correctOption": "Begin a fight",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 40,
+      "slang": "Period",
+      "question": "What does 'Period' mean?",
+      "options": ["Add intensity", "End of a sentence", "A moment in time", "A punctuation mark"],
+      "correctOption": "Add intensity",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 41,
+      "slang": "Finesse",
+      "question": "What does 'Finesse' mean?",
+      "options": ["Trick someone", "Play gently", "Be very careful", "Move quickly"],
+      "correctOption": "Trick someone",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 42,
+      "slang": "Drag",
+      "question": "What does 'Drag' mean?",
+      "options": ["Make fun of someone", "Move something", "Wear long clothes", "Walk slowly"],
+      "correctOption": "Make fun of someone",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 43,
+      "slang": "I am Weak",
+      "question": "What does 'I am Weak' mean?",
+      "options": ["Something is hilarious", "Feeling physically weak", "Feeling sad", "Unable to move"],
+      "correctOption": "Something is hilarious",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 44,
+      "slang": "Slaps",
+      "question": "What does 'Slaps' mean?",
+      "options": ["Exceptionally good", "Hitting hard", "Disappointing", "Painful"],
+      "correctOption": "Exceptionally good",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 45,
+      "slang": "Main character",
+      "question": "What does 'Main character' mean?",
+      "options": ["Charismatic personality", "Leading a movie", "A boring person", "Being selfish"],
+      "correctOption": "Charismatic personality",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 46,
+      "slang": "Sus",
+      "question": "What does 'Sus' mean?",
+      "options": ["Suspicious", "Sure", "Surprised", "Successful"],
+      "correctOption": "Suspicious",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 47,
+      "slang": "Tea",
+      "question": "What does 'Tea' mean?",
+      "options": ["Gossip", "A hot drink", "A discussion", "Something fancy"],
+      "correctOption": "Gossip",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 48,
+      "slang": "G.O.A.T",
+      "question": "What does 'G.O.A.T' mean?",
+      "options": ["Greatest of all time", "A type of animal", "A nickname", "A fashion trend"],
+      "correctOption": "Greatest of all time",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 49,
+      "slang": "Slay",
+      "question": "What does 'Slay' mean?",
+      "options": ["To do something exceptionally well", "To kill", "To embarrass", "To criticize"],
+      "correctOption": "To do something exceptionally well",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 50,
+      "slang": "Demure",
+      "question": "What does 'Demure' mean?",
+      "options": ["Shy or reserved", "Loud", "Excited", "Overconfident"],
+      "correctOption": "Shy or reserved",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 51,
+      "slang": "Receipts",
+      "question": "What does 'Receipts' mean?",
+      "options": ["Proof of something", "Shopping receipts", "Money owed", "A purchase"],
+      "correctOption": "Proof of something",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 52,
+      "slang": "Thirst trap",
+      "question": "What does 'Thirst trap' mean?",
+      "options": ["A provocative photo", "A literal trap for water", "A failed plan", "A fashion style"],
+      "correctOption": "A provocative photo",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 53,
+      "slang": "Bet",
+      "question": "What does 'Bet' mean in slang?",
+      "options": ["Okay, I agree", "Wagering money", "Playing cards", "Not sure"],
+      "correctOption": "Okay, I agree",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 54,
+      "slang": "Bougie",
+      "question": "What does 'Bougie' mean?",
+      "options": ["Pretentious or high-class", "Basic", "Boring", "Untrustworthy"],
+      "correctOption": "Pretentious or high-class",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 55,
+      "slang": "Gucci",
+      "question": "What does 'Gucci' mean in slang?",
+      "options": ["Good or cool", "An expensive brand", "Fake", "Bad"],
+      "correctOption": "Good or cool",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 56,
+      "slang": "No cap",
+      "question": "What does 'No cap' mean?",
+      "options": ["No lie", "No hat", "No problem", "No fear"],
+      "correctOption": "No lie",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 57,
+      "slang": "Cancelled",
+      "question": "What does it mean when someone is 'Cancelled'?",
+      "options": ["Socially ostracized", "Appointment canceled", "Not invited", "Too busy to attend"],
+      "correctOption": "Socially ostracized",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 58,
+      "slang": "Spill the tea",
+      "question": "What does 'Spill the tea' mean?",
+      "options": ["Share gossip", "Drop something", "Make a mess", "Tell a secret"],
+      "correctOption": "Share gossip",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 59,
+      "slang": "Shook",
+      "question": "What does 'Shook' mean?",
+      "options": ["Shocked or surprised", "Tired", "Annoyed", "Upset"],
+      "correctOption": "Shocked or surprised",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 60,
+      "slang": "Drag me",
+      "question": "What does 'Drag me' mean?",
+      "options": ["Criticize or insult me", "Help me", "Pull me along", "Encourage me"],
+      "correctOption": "Criticize or insult me",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 61,
+      "slang": "Yeet",
+      "question": "What does 'Yeet' mean?",
+      "options": ["To throw something with force", "To eat", "To run away", "To jump"],
+      "correctOption": "To throw something with force",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 62,
+      "slang": "Clap back",
+      "question": "What does 'Clap back' mean?",
+      "options": ["Respond with a comeback", "Clap loudly", "Start an argument", "Ignore criticism"],
+      "correctOption": "Respond with a comeback",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 63,
+      "slang": "Thicc",
+      "question": "What does 'Thicc' mean?",
+      "options": ["A person with a curvy body", "Thick in texture", "Dense", "Strong"],
+      "correctOption": "A person with a curvy body",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 64,
+      "slang": "Woke",
+      "question": "What does 'Woke' mean in slang?",
+      "options": ["Being socially aware", "Feeling tired", "Being awake", "Starting a protest"],
+      "correctOption": "Being socially aware",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 65,
+      "slang": "FOMO",
+      "question": "What does 'FOMO' stand for?",
+      "options": ["Fear of missing out", "Feeling of moving on", "Freaking out massively", "Fall over and move out"],
+      "correctOption": "Fear of missing out",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 66,
+      "slang": "Snatched",
+      "question": "What does 'Snatched' mean in slang?",
+      "options": ["Looking great", "Stolen", "Confused", "Sick"],
+      "correctOption": "Looking great",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 67,
+      "slang": "Slay",
+      "question": "What does 'Slay' mean?",
+      "options": ["To do something exceptionally well", "To defeat", "To be defeated", "To joke"],
+      "correctOption": "To do something exceptionally well",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 68,
+      "slang": "Flex",
+      "question": "What does 'Flex' mean?",
+      "options": ["To show off", "To bend", "To be strong", "To change position"],
+      "correctOption": "To show off",
+      "difficulty": "Easy"
+    }
+  ]
+  
