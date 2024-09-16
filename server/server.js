@@ -33,18 +33,23 @@ app.get('/api/quiz', async (req, res) => {
   }
 });
 
-// Submit answers, calculate score, and save to score.json
+
+// Submit answers, calculate score, save to score.json, and calculate percentile
 app.post('/api/quiz/submit', async (req, res) => {
-    const { answers } = req.body;
+    const { answers, difficulty } = req.body;
   
     if (!answers || !Array.isArray(answers)) {
       return res.status(400).json({ error: 'Invalid answers format' });
     }
   
+    if (!difficulty || !['Easy', 'Intermediate', 'Advanced'].includes(difficulty)) {
+      return res.status(400).json({ error: 'Invalid or missing difficulty level' });
+    }
+  
     try {
       // Load quiz questions
       const quizData = await fs.readFile('./data/quiz.json', 'utf8');
-      const questions = JSON.parse(quizData);
+      const questions = JSON.parse(quizData).filter(q => q.difficulty === difficulty);
   
       let score = 0;
   
@@ -61,21 +66,24 @@ app.post('/api/quiz/submit', async (req, res) => {
       const commentsList = JSON.parse(commentsData);
       const result = commentsList.find(comment => comment.score === score);
   
-      // Load historical scores from score.json
+      // Load historical scores from score.json and filter by difficulty
       const scoreData = await fs.readFile('./data/score.json', 'utf8');
-      const scores = JSON.parse(scoreData);
+      const scores = JSON.parse(scoreData).filter(s => s.difficulty === difficulty);
   
       // Save the user's score to score.json
       const newScoreEntry = {
-        id: uuidv4(),  // Generate random UUID for score entry
+        difficulty: difficulty,  // Store the difficulty level
         score: score
       };
       scores.push(newScoreEntry);
   
       // Write the updated scores back to score.json
-      await fs.writeFile('./data/score.json', JSON.stringify(scores, null, 2), 'utf8');
+      const allScores = await fs.readFile('./data/score.json', 'utf8');
+      const fullScoreList = JSON.parse(allScores);
+      fullScoreList.push(newScoreEntry);
+      await fs.writeFile('./data/score.json', JSON.stringify(fullScoreList, null, 2), 'utf8');
   
-      // Calculate the percentile
+      // Calculate the percentile based on the same difficulty level
       const totalScores = scores.length;
       const scoresLessThanCurrent = scores.filter(s => s.score < score).length;
       const percentile = Math.floor((scoresLessThanCurrent / totalScores) * 100);
