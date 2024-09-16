@@ -31,3 +31,43 @@ app.get('/api/quiz', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch quiz questions' });
   }
 });
+
+// Submit user answers and get the score
+app.post('/api/quiz/submit', async (req, res) => {
+    const { answers } = req.body;
+  
+    if (!answers || !Array.isArray(answers)) {
+      return res.status(400).json({ error: 'Invalid answers format' });
+    }
+  
+    try {
+      const data = await fs.readFile('./data/quiz.json', 'utf8');
+      const questions = JSON.parse(data);
+  
+      let score = 0;
+  
+      // Calculate the score
+      answers.forEach(answer => {
+        const question = questions.find(q => q.id === answer.questionId);
+        if (question && question.correctOption === answer.selectedOption) {
+          score += 1;
+        }
+      });
+  
+      const scoreData = await fs.readFile('./data/score.json', 'utf8');
+      const scoreList = JSON.parse(scoreData);
+      const result = scoreList.find(s => s.score === score);
+  
+      res.status(200).json({
+        score: score,
+        comment: result.comment,
+        meme: result.meme,
+        percentile: Math.floor(Math.random() * 100) // Dummy percentile value
+      });
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to submit answers and calculate score' });
+    }
+  });
+  
+
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
