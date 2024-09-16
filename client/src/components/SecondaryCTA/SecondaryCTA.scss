@@ -1,0 +1,23 @@
+.secondary-cta {
+    background-color: $secondary-cta-default-background-color;
+    color: $secondary-cta-default-text-color;
+    padding: 16px;
+    border-radius: $cta-border-radius;
+    border: 2px solid $secondary-cta-default-border-color;
+    cursor: pointer;
+    font-size: $mobile-body-text-size;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $secondary-cta-hover-background-color;
+      border-color: $secondary-cta-hover-border-color;
+      color: $secondary-cta-hover-text-color;
+    }
+  
+    &:active {
+      background-color: $secondary-cta-active-background-color;
+      border-color: $secondary-cta-active-border-color;
+      color: $secondary-cta-active-text-color;
+    }
+  }
+  
