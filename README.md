@@ -73,27 +73,30 @@ Phase 2 features:
 #### Phase 1
 
 #### Home Page
-![](assets/prototypes/home.png)
+![](prototypes/home.png)
 
 #### Quiz Page
 
-![](assets/prototypes/quiz-question.png)
-![](assets/prototypes/quiz-answer.png)
+![](prototypes/quiz-question.png)
+![](prototypes/quiz-answer-correct.png)
+![](prototypes/quiz-answer-incorrect.png)
+
 
 #### Result Page
 
-![](assets/prototypes/result.png)
+![](prototypes/quiz-result.png)
 
 #### Add a Quiz Page
 
-![](assets/prototypes/add-new-quiz.png)
-![](assets/prototypes/new-quiz-added.png)
+![](prototypes/add-new-quiz-blank.png)
+![](prototypes/add-new-quiz-filled.png)
+![](prototypes/new-quiz-added.png)
 
 
 
 ### Data
 
-![](assets/prototypes/data-tables.png)
+![](prototypes/data-tables.png)
 
 #### Relationships:
 - Users → UserResponses:
