@@ -2,9 +2,10 @@ $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 
 $background-color:#FBFBEF;
-$primary-text-color:#FF6234;
-$secondary-text-color:#17873F;
+$title-text-color:#FF6234;
+$subtitle-text-color:#17873F;
 $body-text-color:#000000;
+$placeholder-text-color: #D9D9D9;
 
 $font-weight-bold: 700;
 $font-weight-demi: 600;
@@ -53,7 +54,8 @@ $secondary-cta-active-text-color: #17873F;
 $inactive-input-field-outline-color:#E1E1E1;
 $active-input-field-outline-color:#FF6234;
 $input-field-background-color:#FFFFFF;
-$input-border-radius:10px;
+$input-field-border-radius:10px;
+
 
 $inactive-button-background-color:#D9D9D9;
 $inactive-button-text-color:#696666;

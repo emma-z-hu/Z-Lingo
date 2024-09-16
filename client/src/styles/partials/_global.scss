@@ -1,0 +1,74 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+
+* {
+  box-sizing: border-box;
+  background-color: $background-color;
+}
+
+body {
+  font-family: "Avenir";
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  font-size: $mobile-body-text-size;
+  font-display: wrap;
+  line-height: $mobile-body-line-height;
+  margin: 0;
+  color: $body-text-color;
+}
+
+h1 {
+  font-weight: $font-weight-bold;
+  font-size: $mobile-h1-text-size;
+  line-height: $mobile-h1-line-height;
+  color: $title-text-color;
+}
+
+h2 {
+  font-weight: $font-weight-bold;
+  font-size: $mobile-h2-text-size;
+  line-height: $mobile-h2-line-height;
+  color: $subtitle-text-color;
+}
+
+h3 {
+  font-weight: $font-weight-bold;
+  font-size: $mobile-h3-text-size;
+  line-height: $mobile-h3-line-height;
+}
+
+label {
+  font-weight: $font-weight-bold;
+  font-style: normal;
+  font-size: $mobile-label-button-text-size;
+  line-height: $mobile-label-button-line-height;
+  font-display: wrap;
+}
+
+button {
+  height: $cta-height;
+  width: $cta-width;
+  border-radius: $cta-border-radius;
+  color: $cta-text-color;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid $inactive-input-field-outline-color;
+  border-radius: $input-field-border-radius;
+  background-color: $input-field-background-color;
+  font-family: "Avenir";
+
+  &::placeholder {
+    @extend body;
+    color: $placeholder-text-color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $active-input-field-outline-color;
+    border-width: 1px;
+    color: $body-text-color;
+  }
+}
