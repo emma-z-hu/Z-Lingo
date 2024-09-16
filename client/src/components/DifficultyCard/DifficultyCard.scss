@@ -7,21 +7,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     padding: 16px;
     transition: transform 0.2s ease;
-    
+    border:1px solid $card-border-color;
+    height: 140px;
+    width: 96px;
+    border-radius: 10px;
+    background-color: $card-background-color;
+
+    &:active {
+      background-color: $card-active-background-color;
+    }
+
     &__icon {
       width: $mobile-icon-width;
       height: $mobile-icon-height;
     }
-  
+
     &__label {
       margin-top: 12px;
-      font-size: $mobile-h3-text-size;
-      line-height: $mobile-h3-line-height;
-      color: $subtitle-text-color;
+      font-size: $mobile-label-button-text-size;
+      line-height: $mobile-label-button-line-height;
+      color: $card-text-color;
       font-weight: $font-weight-bold;
+
+      &:active {
+        color: $card-active-text-color;
+      }
     }
   
     &:hover {

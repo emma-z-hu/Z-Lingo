@@ -4,7 +4,6 @@
 
 * {
   box-sizing: border-box;
-  background-color: $background-color;
 }
 
 body {
@@ -16,6 +15,8 @@ body {
   line-height: $mobile-body-line-height;
   margin: 0;
   color: $body-text-color;
+  background-color: $background-color;
+
 }
 
 h1 {
@@ -29,7 +30,7 @@ h2 {
   font-weight: $font-weight-bold;
   font-size: $mobile-h2-text-size;
   line-height: $mobile-h2-line-height;
-  color: $subtitle-text-color;
+  color: $title-text-color;
 }
 
 h3 {
@@ -37,6 +38,14 @@ h3 {
   font-size: $mobile-h3-text-size;
   line-height: $mobile-h3-line-height;
 }
+
+header {
+  font-weight: $font-weight-bold;
+  font-size: $mobile-h2-text-size;
+  line-height: $mobile-h2-line-height;
+  color: $header-text-color;
+}
+
 
 label {
   font-weight: $font-weight-bold;

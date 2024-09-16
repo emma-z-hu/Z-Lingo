@@ -2,29 +2,33 @@ $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 
 $background-color:#FBFBEF;
+
 $title-text-color:#FF6234;
-$subtitle-text-color:#17873F;
+$header-text-color:#17873F;
 $body-text-color:#000000;
 $placeholder-text-color: #D9D9D9;
+$card-text-color: #FF6234;
+$card-active-text-color:#FFFFFF;
+
 
 $font-weight-bold: 700;
 $font-weight-demi: 600;
 $font-weight-regular: 400;
 
-$mobile-h1-text-size: 24px;
+$mobile-h1-text-size: 48px;
 $mobile-h1-line-height: 32px;
-$mobile-h2-text-size: 12px;
-$mobile-h2-line-height: 20px;
-$mobile-h3-text-size: 13px;
+$mobile-h2-text-size: 24px;
+$mobile-h2-line-height: 24px;
+$mobile-h3-text-size: 18px;
 $mobile-h3-line-height: 18px;
-$mobile-body-text-size: 13px;
+$mobile-body-text-size: 14px;
 $mobile-body-line-height: 18px;
-$mobile-label-button-text-size: 10px;
+$mobile-label-button-text-size: 13px;
 $mobile-label-button-line-height: 20px;
 $mobile-padding-before-headlines:24px;
 $mobile-padding-after-headlines:16px;
 $mobile-padding-between-components:16px;
-$mobile-icon-width:36px;
+$mobile-icon-width:auto;
 $mobile-icon-height:36px;
 
 $cta-border-radius: 40px;
@@ -56,12 +60,16 @@ $active-input-field-outline-color:#FF6234;
 $input-field-background-color:#FFFFFF;
 $input-field-border-radius:10px;
 
-
 $inactive-button-background-color:#D9D9D9;
 $inactive-button-text-color:#696666;
 $active-button-background-color:#17873F;
 $active-button-text-color:#FFFFFF;
 $button-border-radius: 10px;
+
+$card-border-color:#FF6234;
+$card-background-color:#FFFFFF;
+$card-active-background-color:#FF6234;
+
 
 $logo-height: 25px;
 $logo-width: 120px;

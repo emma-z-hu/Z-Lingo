@@ -31,8 +31,10 @@ const HomePage = () => {
         <DifficultyCard icon={rocketIcon} label="Advanced" onClick={() => console.log('Advanced clicked')} />
       </div>
 
+      <div className="home-page__cta">
       <PrimaryCTA label="Start quiz" onClick={handleStartQuiz} />
       <SecondaryCTA label="Add a question" onClick={handleAddQuestion} />
+      </div>
     </div>
   );
 };
