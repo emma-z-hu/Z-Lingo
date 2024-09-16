@@ -235,7 +235,7 @@ Error Response (400 - Bad Request):
 }
 ```
 
-**POST /api/quiz/add**
+**POST /api/quiz**
 
 - Allow authenticated users to add new slang terms and create new quiz questions. This slang will be added to the quiz question database and used in future quizzes.
 
