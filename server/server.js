@@ -139,32 +139,5 @@ app.post('/api/quiz/submit', async (req, res) => {
     res.status(200).json({ percentile });
   });
   
-
-// Store an anonymous score with a random UUID
-app.post('/api/leaderboard', async (req, res) => {
-    const { score } = req.body;
   
-    if (score == null || isNaN(score)) {
-      return res.status(400).json({ error: 'Invalid or missing score' });
-    }
-  
-    try {
-      const scoreData = await fs.readFile('./data/score.json', 'utf8');
-      const scores = JSON.parse(scoreData);
-  
-      const newScoreEntry = {
-        id: uuidv4(),  // Generate random UUID
-        score: parseInt(score)
-      };
-  
-      scores.push(newScoreEntry);
-  
-      await fs.writeFile('./data/score.json', JSON.stringify(scores, null, 2), 'utf8');
-      res.status(201).json({ message: 'Score recorded successfully!', id: newScoreEntry.id });
-    } catch (err) {
-      res.status(500).json({ error: 'Failed to store the score' });
-    }
-  });
-  
-
   app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
