@@ -1,0 +1,23 @@
+.primary-cta {
+    background-color: $primary-cta-default-background-color;
+    color: $primary-cta-default-text-color;
+    padding: 16px;
+    border-radius: $cta-border-radius;
+    border: 2px solid $primary-cta-default-border-color;
+    cursor: pointer;
+    font-size: $mobile-body-text-size;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $primary-cta-hover-background-color;
+      border-color: $primary-cta-hover-border-color;
+      color: $primary-cta-hover-text-color;
+    }
+  
+    &:active {
+      background-color: $primary-cta-active-background-color;
+      border-color: $primary-cta-active-border-color;
+      color: $primary-cta-active-text-color;
+    }
+  }
+  
