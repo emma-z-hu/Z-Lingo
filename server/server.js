@@ -33,7 +33,7 @@ app.get('/api/quiz', async (req, res) => {
   }
 });
 
-// Submit user answers and get the score
+// Submit answers, calculate score, and save to score.json
 app.post('/api/quiz/submit', async (req, res) => {
     const { answers } = req.body;
   
@@ -42,6 +42,7 @@ app.post('/api/quiz/submit', async (req, res) => {
     }
   
     try {
+      // Load quiz questions
       const quizData = await fs.readFile('./data/quiz.json', 'utf8');
       const questions = JSON.parse(quizData);
   
@@ -55,16 +56,35 @@ app.post('/api/quiz/submit', async (req, res) => {
         }
       });
   
+      // Load comments based on score
       const commentsData = await fs.readFile('./data/comments.json', 'utf8');
       const commentsList = JSON.parse(commentsData);
       const result = commentsList.find(comment => comment.score === score);
   
-      res.status(200).json({
+      // Prepare response data
+      const response = {
         score: score,
         comment: result.comment,
         meme: result.meme,
         percentile: Math.floor(Math.random() * 100) // Dummy percentile value for now
-      });
+      };
+  
+      // Save the score to score.json
+      const scoreData = await fs.readFile('./data/score.json', 'utf8');
+      const scores = JSON.parse(scoreData);
+  
+      const newScoreEntry = {
+        id: uuidv4(),  // Generate random UUID for score entry
+        score: score
+      };
+  
+      scores.push(newScoreEntry);
+  
+      // Write the updated scores back to score.json
+      await fs.writeFile('./data/score.json', JSON.stringify(scores, null, 2), 'utf8');
+  
+      // Send the response
+      res.status(200).json(response);
     } catch (err) {
       res.status(500).json({ error: 'Failed to submit answers and calculate score' });
     }
