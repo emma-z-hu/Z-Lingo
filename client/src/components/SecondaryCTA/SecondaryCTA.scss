@@ -1,3 +1,8 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
 .secondary-cta {
     background-color: $secondary-cta-default-background-color;
     color: $secondary-cta-default-text-color;
