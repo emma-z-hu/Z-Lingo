@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import express from 'express';
 import cors from 'cors';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 app.use(cors());
@@ -41,12 +42,12 @@ app.post('/api/quiz/submit', async (req, res) => {
     }
   
     try {
-      const data = await fs.readFile('./data/quiz.json', 'utf8');
-      const questions = JSON.parse(data);
+      const quizData = await fs.readFile('./data/quiz.json', 'utf8');
+      const questions = JSON.parse(quizData);
   
       let score = 0;
   
-      // Calculate the score
+      // Calculate the score based on user answers
       answers.forEach(answer => {
         const question = questions.find(q => q.id === answer.questionId);
         if (question && question.correctOption === answer.selectedOption) {
@@ -54,20 +55,21 @@ app.post('/api/quiz/submit', async (req, res) => {
         }
       });
   
-      const scoreData = await fs.readFile('./data/score.json', 'utf8');
-      const scoreList = JSON.parse(scoreData);
-      const result = scoreList.find(s => s.score === score);
+      const commentsData = await fs.readFile('./data/comments.json', 'utf8');
+      const commentsList = JSON.parse(commentsData);
+      const result = commentsList.find(comment => comment.score === score);
   
       res.status(200).json({
         score: score,
         comment: result.comment,
         meme: result.meme,
-        percentile: Math.floor(Math.random() * 100) // Dummy percentile value - need an actual calc later
+        percentile: Math.floor(Math.random() * 100) // Dummy percentile value for now
       });
     } catch (err) {
       res.status(500).json({ error: 'Failed to submit answers and calculate score' });
     }
   });
+  
 
 //Add a new quiz question
   app.post('/api/quiz', async (req, res) => {
@@ -115,6 +117,33 @@ app.post('/api/quiz/submit', async (req, res) => {
     // Dummy percentile value - need an actual calc later
     const percentile = Math.floor(Math.random() * 100);
     res.status(200).json({ percentile });
+  });
+  
+
+// Store an anonymous score with a random UUID
+app.post('/api/leaderboard', async (req, res) => {
+    const { score } = req.body;
+  
+    if (score == null || isNaN(score)) {
+      return res.status(400).json({ error: 'Invalid or missing score' });
+    }
+  
+    try {
+      const scoreData = await fs.readFile('./data/score.json', 'utf8');
+      const scores = JSON.parse(scoreData);
+  
+      const newScoreEntry = {
+        id: uuidv4(),  // Generate random UUID
+        score: parseInt(score)
+      };
+  
+      scores.push(newScoreEntry);
+  
+      await fs.writeFile('./data/score.json', JSON.stringify(scores, null, 2), 'utf8');
+      res.status(201).json({ message: 'Score recorded successfully!', id: newScoreEntry.id });
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to store the score' });
+    }
   });
   
 
