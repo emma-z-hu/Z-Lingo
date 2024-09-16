@@ -103,7 +103,19 @@ app.post('/api/quiz/submit', async (req, res) => {
       res.status(500).json({ error: 'Failed to add new quiz question' });
     }
   });
+
+//Get the leaderboard percentile for a score
+  app.get('/api/leaderboard', (req, res) => {
+    const { score } = req.query;
   
+    if (!score || isNaN(score)) {
+      return res.status(400).json({ error: 'Invalid or missing score' });
+    }
+  
+    // Dummy percentile value - need an actual calc later
+    const percentile = Math.floor(Math.random() * 100);
+    res.status(200).json({ percentile });
+  });
   
 
   app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
