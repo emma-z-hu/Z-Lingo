@@ -61,27 +61,32 @@ app.post('/api/quiz/submit', async (req, res) => {
       const commentsList = JSON.parse(commentsData);
       const result = commentsList.find(comment => comment.score === score);
   
-      // Prepare response data
-      const response = {
-        score: score,
-        comment: result.comment,
-        meme: result.meme,
-        percentile: Math.floor(Math.random() * 100) // Dummy percentile value for now
-      };
-  
-      // Save the score to score.json
+      // Load historical scores from score.json
       const scoreData = await fs.readFile('./data/score.json', 'utf8');
       const scores = JSON.parse(scoreData);
   
+      // Save the user's score to score.json
       const newScoreEntry = {
         id: uuidv4(),  // Generate random UUID for score entry
         score: score
       };
-  
       scores.push(newScoreEntry);
   
       // Write the updated scores back to score.json
       await fs.writeFile('./data/score.json', JSON.stringify(scores, null, 2), 'utf8');
+  
+      // Calculate the percentile
+      const totalScores = scores.length;
+      const scoresLessThanCurrent = scores.filter(s => s.score < score).length;
+      const percentile = Math.floor((scoresLessThanCurrent / totalScores) * 100);
+  
+      // Prepare response
+      const response = {
+        score: score,
+        comment: result.comment,
+        meme: result.meme,
+        percentile: percentile
+      };
   
       // Send the response
       res.status(200).json(response);
