@@ -18,7 +18,7 @@
     background-color: $card-background-color;
 
     &:active {
-      background-color: $card-active-background-color;
+      border-color: $card-active-border-color;
     }
 
     &__icon {
@@ -32,10 +32,6 @@
       line-height: $mobile-label-button-line-height;
       color: $card-text-color;
       font-weight: $font-weight-bold;
-
-      &:active {
-        color: $card-active-text-color;
-      }
     }
   
     &:hover {

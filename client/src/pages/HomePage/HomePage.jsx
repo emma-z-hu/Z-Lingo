@@ -20,7 +20,7 @@ const HomePage = () => {
     <div className="home-page">
       <h1 className="home-page__title">Z-Lingo</h1>
       <p className="home-page__subtitle">
-        Can you slay that GenZ lingo like a total boss? Take this dope quiz to flex your slang knowledge, fam!
+        Can you slay that GenZ lingo like a total boss? Take this dope quiz to flex your slang knowledge!
       </p>
 
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
