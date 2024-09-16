@@ -1,0 +1,29 @@
+.home-page {
+    padding: $mobile-padding-before-headlines;
+    text-align: center;
+  
+    &__title {
+      font-size: $mobile-h1-text-size;
+      color: $title-text-color;
+      margin-bottom: $mobile-padding-after-headlines;
+    }
+  
+    &__subtitle {
+      font-size: $mobile-body-text-size;
+      color: $body-text-color;
+      margin-bottom: $mobile-padding-after-headlines;
+    }
+  
+    &__difficulty-title {
+      font-size: $mobile-h2-text-size;
+      color: $subtitle-text-color;
+      margin-bottom: $mobile-padding-after-headlines;
+    }
+  
+    &__difficulty-cards {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: $mobile-padding-between-components;
+    }
+  }
+  
