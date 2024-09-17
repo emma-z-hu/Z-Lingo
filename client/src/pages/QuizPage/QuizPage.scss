@@ -1,0 +1,30 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.quiz-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $mobile-padding-before-headlines;
+  
+    &__image {
+      width: 100%;
+      max-width: 250px;
+      margin-bottom: $mobile-padding-after-headlines;
+    }
+  
+    &__question {
+      font-size: $mobile-h2-text-size;
+      color: $header-text-color;
+      text-align: center;
+      margin-bottom: $mobile-padding-between-components;
+    }
+  
+    &__options {
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+  

@@ -1,0 +1,21 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.multiple-choice-option {
+    border: 1px solid $inactive-input-field-outline-color;
+    border-radius: $button-border-radius;
+    padding: 12px;
+    margin: 8px 0;
+    font-size: $mobile-body-text-size;
+    text-align: center;
+    cursor: pointer;
+    background-color: $input-field-background-color;
+  
+    &:hover {
+      background-color: $active-button-background-color;
+      color: $active-button-text-color;
+    }
+  }
+  
