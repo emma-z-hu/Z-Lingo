@@ -3,6 +3,7 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
+
 .multiple-choice-option {
     border: 1px solid $inactive-input-field-outline-color;
     border-radius: $button-border-radius;
@@ -16,6 +17,16 @@
     &:hover {
       background-color: $active-button-background-color;
       color: $active-button-text-color;
+    }
+  
+    &--correct {
+      background-color: green;
+      color: white;
+    }
+  
+    &--incorrect {
+      background-color: red;
+      color: white;
     }
   }
   

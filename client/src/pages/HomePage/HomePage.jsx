@@ -8,27 +8,33 @@ import bikeIcon from '../../assets/icons/bike-icon.png';
 import planeIcon from '../../assets/icons/plane-icon.png';
 import rocketIcon from '../../assets/icons/rocket-icon.png';
 
-const HomePage = ({ setSelectedLevel }) => {
+const HomePage = () => {
   const [difficulty, setDifficulty] = useState(null);
+  const [error, setError] = useState(''); // To store the error message
   const navigate = useNavigate();
 
-  // Function to handle difficulty selection
+  // Handle difficulty selection
   const handleDifficultySelect = (level) => {
     setDifficulty(level);
-    setSelectedLevel(level);  // Update selected level in App.js
+    setError('');  // Reset error when a difficulty is selected
   };
 
-  // Handle "Start Quiz" button click
+  // Handle Start Quiz click
   const handleStartQuiz = () => {
     if (difficulty) {
-      navigate('/quiz');  // Navigate to QuizPage
+      navigate(`/quiz?difficulty=${difficulty}`);  // Navigate to QuizPage with query parameter
     } else {
-      alert('Please select a difficulty level to start the quiz.');
+      setError('You need to select a difficulty level first to start the quiz.');
+      const startQuizButton = document.querySelector('.primary-cta');
+      startQuizButton.classList.add('shake');
+      setTimeout(() => {
+        startQuizButton.classList.remove('shake');
+      }, 500);
     }
   };
 
   const handleAddQuestion = () => {
-    console.log('Add Question button clicked');
+    navigate('/quiz/add');
   };
 
   return (
@@ -45,6 +51,8 @@ const HomePage = ({ setSelectedLevel }) => {
         <DifficultyCard icon={planeIcon} label="Intermediate" onClick={() => handleDifficultySelect('Intermediate')} />
         <DifficultyCard icon={rocketIcon} label="Advanced" onClick={() => handleDifficultySelect('Advanced')} />
       </div>
+
+      {error && <p className="home-page__error">{error}</p>}  {/* Display error if no difficulty selected */}
 
       <div className="home-page__cta">
         <PrimaryCTA label="Start quiz" onClick={handleStartQuiz} />

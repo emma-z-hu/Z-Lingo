@@ -4,33 +4,57 @@ import Footer from '../../components/Footer/Footer';
 import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
 import './QuizPage.scss';
 import axios from 'axios';  // For making HTTP requests to the backend
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
-const QuizPage = ({ selectedLevel }) => {
+const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [searchParams] = useSearchParams();  // Hook to get query parameters
+  const navigate = useNavigate();
+
+  // Get the difficulty level from query params
+  const difficulty = searchParams.get('difficulty');
 
   useEffect(() => {
     // Fetch questions from the backend based on selected difficulty level
     const fetchQuizQuestions = async () => {
       try {
-        const response = await axios.get(`/api/quiz?difficulty=${selectedLevel}`);
+        const response = await axios.get(`/api/quiz?difficulty=${difficulty}`);
         setQuestions(response.data.questions);
       } catch (error) {
         console.error("Failed to fetch quiz questions:", error);
       }
     };
 
-    if (selectedLevel) {
+    if (difficulty) {
       fetchQuizQuestions();
     }
-  }, [selectedLevel]);
+  }, [difficulty]);
 
   // Handle user selecting an option
   const handleOptionSelect = (selectedOption) => {
-    console.log(`Selected option: ${selectedOption}`);
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    }
+    if (isAnswered) return; // Prevent selecting multiple options at once
+
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = selectedOption === currentQuestion.correctOption;
+
+    setSelectedAnswer(selectedOption);
+    setCorrectAnswer(currentQuestion.correctOption);
+    setIsAnswered(true);
+
+    setTimeout(() => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setSelectedAnswer(null);
+        setCorrectAnswer(null);
+        setIsAnswered(false);
+      } else {
+        navigate('/quiz/result'); // Navigate to the quiz result page after the last question
+      }
+    }, 2000);
   };
 
   if (!questions.length) return <div>Loading...</div>;
@@ -39,13 +63,19 @@ const QuizPage = ({ selectedLevel }) => {
 
   return (
     <div className="quiz-page">
-      <Header level={selectedLevel} />
+      <Header level={difficulty} />
       <img src={currentQuestion.image} alt={currentQuestion.question} className="quiz-page__image" />
       <h2 className="quiz-page__question">{currentQuestion.question}</h2>
 
       <div className="quiz-page__options">
         {currentQuestion.options.map((option, index) => (
-          <MultipleChoiceOption key={index} option={option} onSelect={handleOptionSelect} />
+          <MultipleChoiceOption
+            key={index}
+            option={option}
+            isSelected={option === selectedAnswer}
+            isCorrect={option === correctAnswer}
+            onSelect={handleOptionSelect}
+          />
         ))}
       </div>
 

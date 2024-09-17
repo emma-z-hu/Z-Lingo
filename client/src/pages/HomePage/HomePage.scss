@@ -50,5 +50,21 @@ body {
       padding:$mobile-padding-after-headlines 0;
       margin-top: $mobile-padding-after-headlines*4;
     }
+
+    &__error {
+      color: red;
+      font-size: $mobile-body-text-size;
+      margin-top: 10px;
+    }
+  
+    .shake {
+      animation: shake 0.5s;
+    }
+  
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-10px); }
+      40%, 80% { transform: translateX(10px); }
+    }
   }
   
