@@ -1,22 +1,15 @@
 import React from 'react';
 import './MultipleChoiceOption.scss';
 
-// Each option is rendered from the data passed from QuizPage
-const MultipleChoiceOption = ({ option, isSelected, isCorrect, onSelect }) => {
+const MultipleChoiceOption = ({ label, isSelected, isCorrect, isIncorrect, onClick }) => {
   let className = 'multiple-choice-option';
-
-  if (isSelected && isCorrect) {
-    className += ' multiple-choice-option--correct';
-  } else if (isSelected && !isCorrect) {
-    className += ' multiple-choice-option--incorrect';
-  } else if (isCorrect) {
-    className += ' multiple-choice-option--correct';
-  }
+  if (isCorrect) className += ' correct';
+  if (isIncorrect) className += ' incorrect';
 
   return (
-    <div className={className} onClick={() => onSelect(option)}>
-      {option}
-    </div>
+    <button className={className} onClick={onClick} disabled={isSelected}>
+      {label}
+    </button>
   );
 };
 
