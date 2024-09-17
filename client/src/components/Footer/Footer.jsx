@@ -1,7 +1,6 @@
 import React from 'react';
 import './Footer.scss';
 
-// The currentQuestion prop is passed down from the parent (QuizPage)
 const Footer = ({ currentQuestion }) => {
   return (
     <div className="footer">

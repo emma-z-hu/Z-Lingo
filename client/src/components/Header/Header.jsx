@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.scss';
 
-// The level prop is passed down from the parent (QuizPage)
 const Header = ({ level }) => {
   return (
     <div className="header">
