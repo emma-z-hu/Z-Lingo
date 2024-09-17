@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import QuizPage from "./pages/QuizPage/QuizPage";
 // import QuizResultPage from './pages/QuizResultPage/QuizResultPage';
@@ -10,18 +10,25 @@ import QuizPage from "./pages/QuizPage/QuizPage";
 import "./App.scss";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/quiz" element={<QuizPage />} />
-        {/* <Route path="/quiz/result" element={<QuizResultPage />} /> */}
-        {/* <Route path="/quiz/add" element={<AddQuizPage />} /> */}
-        {/* <Route path="/quiz/add/complete" element={<QuizAddedPage />} /> */}
-        {/* <Route path="*" element={<NotFoundPage />} />  */}
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+    const [selectedLevel, setSelectedLevel] = useState(null);
+  
+    return (
+      <BrowserRouter>
+        <Routes>
+          {/* Home Page */}
+          <Route 
+            path="/" 
+            element={<HomePage setSelectedLevel={setSelectedLevel} />} 
+          />
+  
+          {/* Quiz Page, passes the selected difficulty level */}
+          <Route 
+            path="/quiz" 
+            element={<QuizPage selectedLevel={selectedLevel} />} 
+          />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
+  
+  export default App;

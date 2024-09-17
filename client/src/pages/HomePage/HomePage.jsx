@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HomePage.scss';
 import DifficultyCard from '../../components/DifficultyCard/DifficultyCard';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
@@ -7,9 +8,23 @@ import bikeIcon from '../../assets/icons/bike-icon.png';
 import planeIcon from '../../assets/icons/plane-icon.png';
 import rocketIcon from '../../assets/icons/rocket-icon.png';
 
-const HomePage = () => {
+const HomePage = ({ setSelectedLevel }) => {
+  const [difficulty, setDifficulty] = useState(null);
+  const navigate = useNavigate();
+
+  // Function to handle difficulty selection
+  const handleDifficultySelect = (level) => {
+    setDifficulty(level);
+    setSelectedLevel(level);  // Update selected level in App.js
+  };
+
+  // Handle "Start Quiz" button click
   const handleStartQuiz = () => {
-    console.log('Start Quiz button clicked');
+    if (difficulty) {
+      navigate('/quiz');  // Navigate to QuizPage
+    } else {
+      alert('Please select a difficulty level to start the quiz.');
+    }
   };
 
   const handleAddQuestion = () => {
@@ -26,14 +41,14 @@ const HomePage = () => {
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
 
       <div className="home-page__difficulty-cards">
-        <DifficultyCard icon={bikeIcon} label="Easy" onClick={() => console.log('Easy clicked')} />
-        <DifficultyCard icon={planeIcon} label="Intermediate" onClick={() => console.log('Intermediate clicked')} />
-        <DifficultyCard icon={rocketIcon} label="Advanced" onClick={() => console.log('Advanced clicked')} />
+        <DifficultyCard icon={bikeIcon} label="Easy" onClick={() => handleDifficultySelect('Easy')} />
+        <DifficultyCard icon={planeIcon} label="Intermediate" onClick={() => handleDifficultySelect('Intermediate')} />
+        <DifficultyCard icon={rocketIcon} label="Advanced" onClick={() => handleDifficultySelect('Advanced')} />
       </div>
 
       <div className="home-page__cta">
-      <PrimaryCTA label="Start quiz" onClick={handleStartQuiz} />
-      <SecondaryCTA label="Add a question" onClick={handleAddQuestion} />
+        <PrimaryCTA label="Start quiz" onClick={handleStartQuiz} />
+        <SecondaryCTA label="Add a question" onClick={handleAddQuestion} />
       </div>
     </div>
   );

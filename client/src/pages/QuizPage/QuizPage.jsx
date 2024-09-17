@@ -20,13 +20,14 @@ const QuizPage = ({ selectedLevel }) => {
       }
     };
 
-    fetchQuizQuestions();
+    if (selectedLevel) {
+      fetchQuizQuestions();
+    }
   }, [selectedLevel]);
 
   // Handle user selecting an option
   const handleOptionSelect = (selectedOption) => {
     console.log(`Selected option: ${selectedOption}`);
-    // Add logic to check if the answer is correct, then move to next question
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
