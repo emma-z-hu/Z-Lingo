@@ -23,7 +23,12 @@ const QuizPage = () => {
     const fetchQuizQuestions = async () => {
       try {
         const response = await axios.get(`/api/quiz?difficulty=${difficulty}`);
-        setQuestions(response.data.questions);
+        if (response.data.questions.length > 0) {
+          setQuestions(response.data.questions);
+        } else {
+          console.error("No questions available.");
+          setQuestions([]); // Handle no questions returned
+        }
       } catch (error) {
         console.error("Failed to fetch quiz questions:", error);
       }
@@ -57,7 +62,8 @@ const QuizPage = () => {
     }, 2000);
   };
 
-  if (!questions.length) return <div>Loading...</div>;
+  // Safeguard in case no questions are fetched
+  if (questions.length === 0) return <div>No questions available.</div>;
 
   const currentQuestion = questions[currentQuestionIndex];
 
