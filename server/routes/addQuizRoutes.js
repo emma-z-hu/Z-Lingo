@@ -4,7 +4,7 @@ import fs from 'fs/promises';
 const router = Router();
 
 // Add a new quiz question
-router.post('/quiz', async (req, res) => {
+router.post('/', async (req, res) => {
   const { slang, question, options, correctOption, difficulty } = req.body;
 
   if (!slang || !question || !options || !correctOption || !difficulty) {

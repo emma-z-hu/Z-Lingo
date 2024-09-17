@@ -9,7 +9,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5500;
 
-app.use('/api/quiz', quizRoutes);
-app.use('/api/add', addQuizRoutes);
+app.use('/api', quizRoutes);
+app.use('/api/quiz/add', addQuizRoutes);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
