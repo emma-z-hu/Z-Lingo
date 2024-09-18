@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
 import axios from 'axios';
 import './QuizPage.scss';
-import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
 
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
@@ -14,16 +14,17 @@ const QuizPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Get difficulty level from URL query parameters
   const searchParams = new URLSearchParams(location.search);
   const difficulty = searchParams.get('difficulty');
+  console.log (searchParams, difficulty) // Debugging - TBD
 
   useEffect(() => {
-    // Fetch questions from backend based on difficulty
     axios
       .get(`/api/quiz?difficulty=${difficulty}`)
       .then((response) => {
+        console.log('Fetched questions:', questions); // Debugging - TBD
         setQuestions(response.data.questions);
+        setCurrentQuestionIndex
         setIsLoading(false);
       })
       .catch((error) => {
@@ -51,18 +52,15 @@ const QuizPage = () => {
       }
       setSelectedOption(null);
       setIsCorrect(null);
-    }, 2000); // 2-second delay to move to next question
+    }, 2000); 
   };
 
-  if (isLoading) {
+  if (isLoading || currentQuestionIndex || selectedOption || questions) {
     return <p>Loading questions...</p>;
   }
 
-  if (questions.length === 0) {
-    return <p>No questions available for this difficulty.</p>;
-  }
-
   const currentQuestion = questions[currentQuestionIndex];
+
 
   return (
     <div className="quiz-page">

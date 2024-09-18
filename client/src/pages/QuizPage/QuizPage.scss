@@ -1,20 +1,51 @@
-@use '../../styles/partials/global' as *;
-@use '../../styles/partials/variables' as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
 
 .quiz-page {
-  padding: $mobile-padding-between-components;
   text-align: center;
+  padding: 20px;
+
+  &__title {
+    font-size: $mobile-h2-text-size;
+    color: $header-text-color;
+    margin-bottom: 16px;
+  }
 
   &__question {
-    font-size: $mobile-h2-text-size;
-    color: $title-text-color;
-    margin-bottom: $mobile-padding-after-headlines;
+    font-size: $mobile-h3-text-size;
+    color: $body-text-color;
+    margin-bottom: 24px;
   }
 
   &__options {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: $mobile-padding-between-components;
+
+    .quiz-page__option {
+      padding: 12px;
+      font-size: $mobile-body-text-size;
+      border-radius: 8px;
+      border: 1px solid $inactive-input-field-outline-color;
+      cursor: pointer;
+      background-color: $card-background-color;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $primary-cta-hover-background-color;
+      }
+
+      &.correct {
+        background-color: $correct-option-background-color;
+        color: $white-text-color;
+      }
+
+      &.incorrect {
+        background-color: $incorrect-option-background-color;
+        color: $white-text-color;
+      }
+    }
   }
 }
