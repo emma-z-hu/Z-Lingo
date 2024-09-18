@@ -44,7 +44,7 @@ const AddQuizPage = () => {
       .post(`${API_URL}/api/quiz/add`, newQuiz)
       .then(() => {
         // Navigate to the "Quiz Added" confirmation page
-        navigate('/quiz/added');
+        navigate('/quiz/add/complete');
       })
       .catch((error) => {
         console.error('Failed to add quiz:', error);
