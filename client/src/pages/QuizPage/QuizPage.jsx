@@ -4,6 +4,8 @@ import MultipleChoiceOption from '../../components/MultipleChoiceOption/Multiple
 import axios from 'axios';
 import './QuizPage.scss';
 
+const API_URL = import.meta.env.VITE_URL;
+
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -16,15 +18,13 @@ const QuizPage = () => {
   
   const searchParams = new URLSearchParams(location.search);
   const difficulty = searchParams.get('difficulty');
-  console.log (searchParams, difficulty) // Debugging - TBD
 
   useEffect(() => {
     axios
-      .get(`/api/quiz?difficulty=${difficulty}`)
+      .get(`${API_URL}/api/quiz?difficulty=${difficulty}`)
       .then((response) => {
-        console.log('Fetched questions:', questions); // Debugging - TBD
+        console.log('Fetched questions:', response.data.questions); // Debugging - TBD
         setQuestions(response.data.questions);
-        setCurrentQuestionIndex
         setIsLoading(false);
       })
       .catch((error) => {
