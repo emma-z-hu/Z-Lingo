@@ -1,16 +1,18 @@
-// @use "../../styles/partials/global" as *;
-// @use "../../styles/partials/variables" as *;
-// @use "../../styles/partials/typography" as *;
-// @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
 
-// .footer {
-//     display: flex;
-//     justify-content: center;
-//     padding: 16px;
-    
-//     &__progress {
-//       font-size: $mobile-body-text-size;
-//       color: $body-text-color;
-//     }
-//   }
+.footer {
+    background-color: $secondary-cta-default-background-color;
+    padding: 16px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   
+    &__text {
+      font-size: $mobile-body-text-size;
+      color: $card-text-color;
+    }
+  }
