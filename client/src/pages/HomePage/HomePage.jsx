@@ -4,9 +4,9 @@ import './HomePage.scss';
 import DifficultyCard from '../../components/DifficultyCard/DifficultyCard';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import SecondaryCTA from '../../components/SecondaryCTA/SecondaryCTA';
-import bikeIcon from '../../assets/icons/bike-icon.png';
-import planeIcon from '../../assets/icons/plane-icon.png';
-import rocketIcon from '../../assets/icons/rocket-icon.png';
+import easyIcon from '../../assets/icons/easy-icon.png';
+import intermediateIcon from '../../assets/icons/intermediate-icon.png';
+import advancedIcon from '../../assets/icons/advanced-icon.png';
 
 const HomePage = () => {
   const [difficulty, setDifficulty] = useState(null);
@@ -47,9 +47,9 @@ const HomePage = () => {
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
 
       <div className="home-page__difficulty-cards">
-        <DifficultyCard icon={bikeIcon} label="Easy" onClick={() => handleDifficultySelect('Easy')} />
-        <DifficultyCard icon={planeIcon} label="Intermediate" onClick={() => handleDifficultySelect('Intermediate')} />
-        <DifficultyCard icon={rocketIcon} label="Advanced" onClick={() => handleDifficultySelect('Advanced')} />
+        <DifficultyCard icon={easyIcon} label="Easy" onClick={() => handleDifficultySelect('Easy')} />
+        <DifficultyCard icon={intermediateIcon} label="Intermediate" onClick={() => handleDifficultySelect('Intermediate')} />
+        <DifficultyCard icon={advancedIcon} label="Advanced" onClick={() => handleDifficultySelect('Advanced')} />
       </div>
 
       {error && <p className="home-page__error">{error}</p>}  {/* Display error if no difficulty selected */}

@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Spinner from '../../components/Spinner/Spinner';
 import axios from 'axios';
 import './QuizPage.scss';
+
+const API_URL = import.meta.env.VITE_URL;
 
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [score, setScore] = useState(0);
+  const [answers, setAnswers] = useState([]);  // Track user's answers
   const [isCorrect, setIsCorrect] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const searchParams = new URLSearchParams(location.search);
   const difficulty = searchParams.get('difficulty');
-  console.log (searchParams, difficulty) // Debugging - TBD
 
   useEffect(() => {
     axios
-      .get(`/api/quiz?difficulty=${difficulty}`)
+      .get(`${API_URL}/api/quiz?difficulty=${difficulty}`)
       .then((response) => {
-        console.log('Fetched questions:', questions); // Debugging - TBD
         setQuestions(response.data.questions);
-        setCurrentQuestionIndex
         setIsLoading(false);
       })
       .catch((error) => {
@@ -34,49 +37,77 @@ const QuizPage = () => {
   }, [difficulty]);
 
   const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-
     const currentQuestion = questions[currentQuestionIndex];
+    
+    setAnswers((prevAnswers) => [
+      ...prevAnswers,
+      { questionId: currentQuestion.id, selectedOption: option }
+    ]);
+
+    setSelectedOption(option);
     if (option === currentQuestion.correctOption) {
-      setScore((prevScore) => prevScore + 1);
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
     }
 
     setTimeout(() => {
+      setIsTransitioning(true);
+    }, 500);
+
+    setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       } else {
-        navigate(`/quiz/result?score=${score}`);
+        submitQuiz();
       }
       setSelectedOption(null);
       setIsCorrect(null);
-    }, 2000); 
+      setIsTransitioning(false);
+    }, 1000);
   };
 
-  if (isLoading || currentQuestionIndex || selectedOption || questions) {
+  const submitQuiz = () => {
+    axios
+      .post(`${API_URL}/api/quiz/submit`, { answers, difficulty })
+      .then((response) => {
+        const { score, comment, meme, percentile } = response.data;
+        navigate(`/quiz/result?score=${score}&comment=${encodeURIComponent(comment)}&meme=${encodeURIComponent(meme)}&percentile=${percentile}&difficulty=${difficulty}`);
+      })
+      .catch((error) => {
+        console.error('Failed to submit quiz:', error);
+      });
+  };
+
+  if (isLoading) {
     return <p>Loading questions...</p>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
-
   return (
     <div className="quiz-page">
-      <h1 className="quiz-page__question">{currentQuestion.question}</h1>
-      <div className="quiz-page__options">
-        {currentQuestion.options.map((option) => (
-          <MultipleChoiceOption
-            key={option}
-            label={option}
-            isSelected={selectedOption === option}
-            isCorrect={isCorrect !== null && option === currentQuestion.correctOption}
-            isIncorrect={isCorrect === false && option === selectedOption}
-            onClick={() => handleOptionSelect(option)}
-          />
-        ))}
-      </div>
+      <Header difficulty={difficulty} />
+      
+      {isTransitioning && <Spinner />}
+      
+        <>
+          <h1 className="quiz-page__question">{currentQuestion.question}</h1>
+          <div className="quiz-page__options">
+            {currentQuestion.options.map((option) => (
+              <MultipleChoiceOption
+                key={option}
+                label={option}
+                isSelected={selectedOption === option}
+                isCorrect={isCorrect !== null && option === currentQuestion.correctOption}
+                isIncorrect={isCorrect === false && option === selectedOption}
+                onClick={() => handleOptionSelect(option)}
+              />
+            ))}
+          </div>
+        </>
+
+      <Footer currentQuestionIndex={currentQuestionIndex} totalQuestions={questions.length} />
     </div>
   );
 };
