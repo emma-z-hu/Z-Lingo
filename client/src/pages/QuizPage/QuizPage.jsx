@@ -55,12 +55,11 @@ const QuizPage = () => {
     }, 2000); 
   };
 
-  if (isLoading || currentQuestionIndex || selectedOption || questions) {
+  if (isLoading) {
     return <p>Loading questions...</p>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
-
 
   return (
     <div className="quiz-page">
