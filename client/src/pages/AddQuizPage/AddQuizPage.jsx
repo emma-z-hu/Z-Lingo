@@ -10,29 +10,31 @@ const API_URL = import.meta.env.VITE_URL;
 const AddQuizPage = () => {
   const [slang, setSlang] = useState('');
   const [meaning, setMeaning] = useState('');
-  const [options, setOptions] = useState(['', '', '', '']);
+  const [trickAnswers, setTrickAnswers] = useState(['', '', '']);  // Only 3 trick answers
   const [difficulty, setDifficulty] = useState(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleOptionChange = (index, value) => {
-    const updatedOptions = [...options];
-    updatedOptions[index] = value;
-    setOptions(updatedOptions);
+  // Handle change in trick answers
+  const handleTrickAnswerChange = (index, value) => {
+    const updatedTrickAnswers = [...trickAnswers];
+    updatedTrickAnswers[index] = value;
+    setTrickAnswers(updatedTrickAnswers);
   };
 
+  // Handle form submission
   const handleSubmit = () => {
     // Validation: Ensure all fields are filled and difficulty is selected
-    if (!slang || !meaning || options.some(option => option === '') || !difficulty) {
+    if (!slang || !meaning || trickAnswers.some(answer => answer === '') || !difficulty) {
       setError('Please fill in all fields and select a difficulty level.');
       return;
     }
 
-    // Prepare the data for submission
+    // Combine correct meaning with trick answers to form the options
     const newQuiz = {
       slang,
       question: `What does "${slang}" mean?`,
-      options,
+      options: [...trickAnswers, meaning],  // Combine trick answers with correct meaning
       correctOption: meaning,
       difficulty,
     };
@@ -70,12 +72,12 @@ const AddQuizPage = () => {
         </label>
 
         <label>Trick Answers:</label>
-        {options.map((option, index) => (
+        {trickAnswers.map((answer, index) => (
           <input
             key={index}
             type="text"
-            value={option}
-            onChange={(e) => handleOptionChange(index, e.target.value)}
+            value={answer}
+            onChange={(e) => handleTrickAnswerChange(index, e.target.value)}
             placeholder={`Trick Answer ${index + 1}`}
           />
         ))}
