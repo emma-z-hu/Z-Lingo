@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
+import Header from '../../components/Header/Header';
+
 import axios from 'axios';
 import './QuizPage.scss';
 
@@ -63,6 +65,8 @@ const QuizPage = () => {
 
   return (
     <div className="quiz-page">
+      <Header difficulty={difficulty} />
+
       <h1 className="quiz-page__question">{currentQuestion.question}</h1>
       <div className="quiz-page__options">
         {currentQuestion.options.map((option) => (
