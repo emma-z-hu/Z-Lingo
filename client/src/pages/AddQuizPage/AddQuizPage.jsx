@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import SecondaryCTA from '../../components/SecondaryCTA/SecondaryCTA';
+import InputField from '../../components/InputField/InputField';  // Import InputField
 import axios from 'axios';
 import './AddQuizPage.scss';
 
@@ -10,27 +11,25 @@ const API_URL = import.meta.env.VITE_URL;
 const AddQuizPage = () => {
   const [slang, setSlang] = useState('');
   const [meaning, setMeaning] = useState('');
-  const [trickAnswers, setTrickAnswers] = useState(['', '', '']);  // Only 3 trick answers
+  const [trickAnswers, setTrickAnswers] = useState(['', '', '']);
   const [difficulty, setDifficulty] = useState(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Handle change in trick answers
   const handleTrickAnswerChange = (index, value) => {
     const updatedTrickAnswers = [...trickAnswers];
     updatedTrickAnswers[index] = value;
     setTrickAnswers(updatedTrickAnswers);
   };
 
-  // Handle form submission
   const handleSubmit = () => {
-    // Validation: Ensure all fields are filled and difficulty is selected
+    // Validation
     if (!slang || !meaning || trickAnswers.some(answer => answer === '') || !difficulty) {
       setError('Please fill in all fields and select a difficulty level.');
       return;
     }
 
-    // Combine correct meaning with trick answers to form the options
+    // Combine correct meaning with trick answers
     const newQuiz = {
       slang,
       question: `What does "${slang}" mean?`,
@@ -43,7 +42,7 @@ const AddQuizPage = () => {
     axios
       .post(`${API_URL}/api/quiz/add`, newQuiz)
       .then(() => {
-        // Navigate to the "Quiz Added" confirmation page
+        // Navigate to the new confirmation page '/quiz/add/complete'
         navigate('/quiz/add/complete');
       })
       .catch((error) => {
@@ -61,21 +60,27 @@ const AddQuizPage = () => {
       <h1 className="add-quiz-page__title">Add a New Quiz</h1>
 
       <div className="add-quiz-page__form">
-        <label>
-          Slang Word:
-          <input type="text" value={slang} onChange={(e) => setSlang(e.target.value)} />
-        </label>
+        {/* Use InputField component for slang */}
+        <InputField
+          label="Slang Word"
+          value={slang}
+          onChange={(e) => setSlang(e.target.value)}
+          placeholder="Enter the slang word"
+        />
 
-        <label>
-          Correct Meaning:
-          <input type="text" value={meaning} onChange={(e) => setMeaning(e.target.value)} />
-        </label>
+        {/* Use InputField component for correct meaning */}
+        <InputField
+          label="Correct Meaning"
+          value={meaning}
+          onChange={(e) => setMeaning(e.target.value)}
+          placeholder="Enter the correct meaning"
+        />
 
+        {/* Use InputField component for each trick answer */}
         <label>Trick Answers:</label>
         {trickAnswers.map((answer, index) => (
-          <input
+          <InputField
             key={index}
-            type="text"
             value={answer}
             onChange={(e) => handleTrickAnswerChange(index, e.target.value)}
             placeholder={`Trick Answer ${index + 1}`}

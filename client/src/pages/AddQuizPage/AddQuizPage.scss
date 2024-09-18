@@ -39,6 +39,7 @@
   &__difficulty {
     margin-top: 16px;
     display: flex;
+    flex-direction: column;
     gap: 16px;
 
     button {
@@ -47,6 +48,7 @@
       cursor: pointer;
       background-color: $card-background-color;
       border: 1px solid $primary-cta-default-border-color;
+      width: 105px;
 
       &.selected {
         background-color: $primary-cta-active-background-color;
