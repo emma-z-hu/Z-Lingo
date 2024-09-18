@@ -1,0 +1,31 @@
+@use '../../styles/partials/variables' as *;
+
+.quiz-result-page {
+  text-align: center;
+  padding: $mobile-padding-between-components;
+
+  &__title {
+    font-size: $mobile-h2-text-size;
+    color: $title-text-color;
+    margin-bottom: $mobile-padding-between-components;
+  }
+
+  &__comment {
+    font-size: $mobile-body-text-size;
+    color: $body-text-color;
+    margin-bottom: $mobile-padding-between-components;
+    padding: 0 16px;
+  }
+
+  &__meme {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: $mobile-padding-between-components;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
