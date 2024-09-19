@@ -6,6 +6,7 @@ import QuizResultPage from './pages/QuizResultPage/QuizResultPage';
 import AddQuizPage from './pages/AddQuizPage/AddQuizPage';
 import QuizAddedPage from './pages/QuizAddedPage/QuizAddedPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import Footer from './components/Footer/Footer'; 
 
 import "./App.scss";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/quiz/add/complete" element={<QuizAddedPage />} />
         <Route path="*" element={<NotFoundPage />} /> 
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

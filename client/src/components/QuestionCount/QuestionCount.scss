@@ -3,17 +3,15 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-.footer {
+.question-count {
   padding: 16px;
   text-align: center;
-  width: 340px;
   position: fixed;
-  bottom: 10px;
+  width: 340px;
+
 
   &__text {
-    margin: 0;
-    color: lightgrey;
-    font-size: 12px;
-    font-style: italic;
+    font-size: $mobile-body-text-size;
+    color: $footer-text-color;
   }
 }

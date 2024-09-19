@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import QuestionCount from '../../components/QuestionCount/QuestionCount';
 import Spinner from '../../components/Spinner/Spinner';
 import axios from 'axios';
 import './QuizPage.scss';
@@ -106,9 +106,8 @@ const QuizPage = () => {
             ))}
           </div>
         </>
-
-      <Footer currentQuestionIndex={currentQuestionIndex} totalQuestions={questions.length} />
-    </div>
+        <QuestionCount currentQuestionIndex={currentQuestionIndex} totalQuestions={questions.length} />
+        </div>
   );
 };
 
