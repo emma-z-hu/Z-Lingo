@@ -23,11 +23,19 @@ const QuizPage = () => {
   const searchParams = new URLSearchParams(location.search);
   const difficulty = searchParams.get("difficulty");
 
+  const shuffleOptions = (options) => {
+    return options.sort(() => Math.random() - 0.5);
+  };
+
   useEffect(() => {
     axios
       .get(`${API_URL}/api/quiz?difficulty=${difficulty}`)
       .then((response) => {
-        setQuestions(response.data.questions);
+        const shuffledQuestions = response.data.questions.map((question) => ({
+          ...question,
+          options: shuffleOptions([...question.options]) // Shuffle options
+        }));
+        setQuestions(shuffledQuestions);
         setIsLoading(false);
       })
       .catch((error) => {
