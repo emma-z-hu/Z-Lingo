@@ -33,7 +33,7 @@ const QuizPage = () => {
       .then((response) => {
         const shuffledQuestions = response.data.questions.map((question) => ({
           ...question,
-          options: shuffleOptions([...question.options]) // Shuffle options
+          options: shuffleOptions([...question.options]) 
         }));
         setQuestions(shuffledQuestions);
         setIsLoading(false);
