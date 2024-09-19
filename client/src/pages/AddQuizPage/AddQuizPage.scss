@@ -3,6 +3,10 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
+body {
+  padding: $mobile-padding-before-headlines 0;
+}
+
 .add-quiz-page {
   text-align: center;
   padding: $mobile-padding-between-components;
@@ -54,7 +58,7 @@
     margin-top: 16px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    // gap: 16px;
 
     button {
       padding: 12px;
@@ -64,8 +68,15 @@
       border: 1px solid $primary-cta-default-border-color;
       width: 105px;
 
+      &:hover {
+        background-color: $primary-cta-active-background-color;
+        border-color: $primary-cta-active-background-color;
+        color: $white-text-color;
+      }
+
       &.selected {
         background-color: $primary-cta-active-background-color;
+        border-color: $primary-cta-active-background-color;
         color: $white-text-color;
       }
     }
@@ -74,7 +85,13 @@
   &__cta {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+    padding:$mobile-padding-after-headlines*5 0;
+    align-items: center
+    // position:fixed;
+    // bottom: 20px;
+    // align-items: center;
+    // text-align: center;
   }
 
   &__error {

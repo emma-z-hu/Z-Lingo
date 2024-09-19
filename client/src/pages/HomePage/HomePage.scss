@@ -47,8 +47,7 @@ body {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      padding:$mobile-padding-after-headlines 0;
-      margin-top: $mobile-padding-after-headlines*4;
+      padding:$mobile-padding-after-headlines*5 0;
     }
 
     &__error {

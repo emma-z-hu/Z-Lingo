@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
-import SecondaryCTA from '../../components/SecondaryCTA/SecondaryCTA';
-import InputField from '../../components/InputField/InputField';  // Import InputField
-import axios from 'axios';
-import './AddQuizPage.scss';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PrimaryCTA from "../../components/PrimaryCTA/PrimaryCTA";
+import SecondaryCTA from "../../components/SecondaryCTA/SecondaryCTA";
+import InputField from "../../components/InputField/InputField"; // Import InputField
+import axios from "axios";
+import "./AddQuizPage.scss";
 
 const API_URL = import.meta.env.VITE_URL;
 
 const AddQuizPage = () => {
-  const [slang, setSlang] = useState('');
-  const [meaning, setMeaning] = useState('');
-  const [trickAnswers, setTrickAnswers] = useState(['', '', '']);
+  const [slang, setSlang] = useState("");
+  const [meaning, setMeaning] = useState("");
+  const [trickAnswers, setTrickAnswers] = useState(["", "", ""]);
   const [difficulty, setDifficulty] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleTrickAnswerChange = (index, value) => {
@@ -24,8 +24,13 @@ const AddQuizPage = () => {
 
   const handleSubmit = () => {
     // Validation
-    if (!slang || !meaning || trickAnswers.some(answer => answer === '') || !difficulty) {
-      setError('Please fill in all fields and select a difficulty level.');
+    if (
+      !slang ||
+      !meaning ||
+      trickAnswers.some((answer) => answer === "") ||
+      !difficulty
+    ) {
+      setError("Please fill in all fields and select a difficulty level.");
       return;
     }
 
@@ -33,7 +38,7 @@ const AddQuizPage = () => {
     const newQuiz = {
       slang,
       question: `What does "${slang}" mean?`,
-      options: [...trickAnswers, meaning],  // Combine trick answers with correct meaning
+      options: [...trickAnswers, meaning], // Combine trick answers with correct meaning
       correctOption: meaning,
       difficulty,
     };
@@ -43,16 +48,16 @@ const AddQuizPage = () => {
       .post(`${API_URL}/api/quiz/add`, newQuiz)
       .then(() => {
         // Navigate to the new confirmation page '/quiz/add/complete'
-        navigate('/quiz/add/complete');
+        navigate("/quiz/add/complete");
       })
       .catch((error) => {
-        console.error('Failed to add quiz:', error);
-        setError('Failed to add quiz. Please try again.');
+        console.error("Failed to add quiz:", error);
+        setError("Failed to add quiz. Please try again.");
       });
   };
 
   const handleBackToHome = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -77,39 +82,46 @@ const AddQuizPage = () => {
         />
 
         {/* Use InputField component for each trick answer */}
-          <label>Trick Answers</label>
-        <div className='add-quiz-page__form--trick-answers'>
-        {trickAnswers.map((answer, index) => (
-          <InputField
-            key={index}
-            value={answer}
-            onChange={(e) => handleTrickAnswerChange(index, e.target.value)}
-            placeholder={`Trick Answer ${index + 1}`}
-          />
-        ))}
+        <label>Trick Answers</label>
+        <div className="add-quiz-page__form--trick-answers">
+          {trickAnswers.map((answer, index) => (
+            <InputField
+              key={index}
+              value={answer}
+              onChange={(e) => handleTrickAnswerChange(index, e.target.value)}
+              placeholder={`Trick Answer ${index + 1}`}
+            />
+          ))}
         </div>
 
         <div className="add-quiz-page__difficulty">
-        <label>Select Difficulty</label>
+          <label>Select Difficulty</label>
           <div className="add-quiz-page__difficulty-wrapper">
-          <button className={difficulty === 'Easy' ? 'selected' : ''} onClick={() => setDifficulty('Easy')}>
-            Easy
-          </button>
-          <button className={difficulty === 'Intermediate' ? 'selected' : ''} onClick={() => setDifficulty('Intermediate')}>
-            Intermediate
-          </button>
-          <button className={difficulty === 'Advanced' ? 'selected' : ''} onClick={() => setDifficulty('Advanced')}>
-            Advanced
-          </button>
+            <button
+              className={difficulty === "Easy" ? "selected" : ""}
+              onClick={() => setDifficulty("Easy")}
+            >
+              Easy
+            </button>
+            <button
+              className={difficulty === "Intermediate" ? "selected" : ""}
+              onClick={() => setDifficulty("Intermediate")}
+            >
+              Intermediate
+            </button>
+            <button
+              className={difficulty === "Advanced" ? "selected" : ""}
+              onClick={() => setDifficulty("Advanced")}
+            >
+              Advanced
+            </button>
           </div>
         </div>
-
         {error && <p className="add-quiz-page__error">{error}</p>}
-
-        <div className="add-quiz-page__cta">
-          <PrimaryCTA label="Submit" onClick={handleSubmit} />
-          <SecondaryCTA label="Back to Home page" onClick={handleBackToHome} />
-        </div>
+      </div>
+      <div className="add-quiz-page__cta">
+        <PrimaryCTA label="Submit" onClick={handleSubmit} />
+        <SecondaryCTA label="Back to Home page" onClick={handleBackToHome} />
       </div>
     </div>
   );
