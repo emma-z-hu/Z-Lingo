@@ -908,18 +908,5 @@
     ],
     "correctOption": "Greatest of all time",
     "difficulty": "Easy"
-  },
-  {
-    "id": 71,
-    "slang": "GOAT",
-    "question": "What does 'GOAT' mean?",
-    "options": [
-      "Greatest of all time",
-      "Animal",
-      "Leader",
-      "Cheater"
-    ],
-    "correctOption": "Greatest of all time",
-    "difficulty": "Easy"
   }
 ]
