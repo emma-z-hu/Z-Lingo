@@ -170,5 +170,9 @@
   {
     "difficulty": "Advanced",
     "score": 4
+  },
+  {
+    "difficulty": "Easy",
+    "score": 0
   }
 ]
