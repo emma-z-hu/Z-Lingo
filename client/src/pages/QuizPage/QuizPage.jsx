@@ -91,7 +91,7 @@ const QuizPage = () => {
       
       {isTransitioning && <Spinner />}
       
-        <>
+        <div className="quiz-page__main">
           <h1 className="quiz-page__question">{currentQuestion.question}</h1>
           <div className="quiz-page__options">
             {currentQuestion.options.map((option) => (
@@ -105,7 +105,7 @@ const QuizPage = () => {
               />
             ))}
           </div>
-        </>
+        </div>
         <QuestionCount currentQuestionIndex={currentQuestionIndex} totalQuestions={questions.length} />
         </div>
   );
