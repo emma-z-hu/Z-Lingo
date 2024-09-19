@@ -6,6 +6,8 @@
 .add-quiz-page {
   text-align: center;
   padding: $mobile-padding-between-components;
+  height: 100%;
+  width: 100%;
 
   &__title {
     font-size: $mobile-h2-text-size;
@@ -16,24 +18,36 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: $mobile-padding-between-components;
     align-items: center;
 
     label {
       display: flex;
       flex-direction: column;
-      font-size: $mobile-body-text-size;
-      color: $body-text-color;
-      margin-bottom: $mobile-padding-between-components;
+      margin-top:$mobile-padding-before-headlines;
+      margin-bottom:$mobile-padding-after-headlines;
 
       input {
-        margin-top: 8px;
-        padding: 8px;
-        border: 1px solid $inactive-input-field-outline-color;
-        border-radius: $input-field-border-radius;
-        width: 100%;
+        // margin-top: 8px;
+        // padding: 8px;
+        // border: 1px solid $inactive-input-field-outline-color;
+        // border-radius: $input-field-border-radius;
+        // width: 100%;
       }
     }
+
+    &--trick-answers {
+      display: flex;
+      flex-direction: column;
+      gap: $increment;
+    }
+    
+  }
+
+  &__difficulty-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap:8px;
+    width: 100%;
   }
 
   &__difficulty {
@@ -64,7 +78,7 @@
   }
 
   &__error {
-    color: red;
+    color: $body-text-color;
     font-size: $mobile-body-text-size;
     margin-top: 10px;
   }

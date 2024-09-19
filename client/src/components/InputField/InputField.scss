@@ -6,8 +6,6 @@
 .input-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  width: 165px;
   
   &__label {
     font-size: $mobile-body-text-size;
@@ -16,9 +14,14 @@
 
   &__input {
     padding: 8px;
+    // margin:8px;
     border: 1px solid $inactive-input-field-outline-color;
     border-radius: $input-field-border-radius;
     width: 100%;
     font-size: $mobile-body-text-size;
+
+    &::placeholder {
+      background-color: white;
   }
+}
 }

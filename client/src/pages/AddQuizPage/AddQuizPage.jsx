@@ -77,7 +77,8 @@ const AddQuizPage = () => {
         />
 
         {/* Use InputField component for each trick answer */}
-        <label>Trick Answers:</label>
+          <label>Trick Answers</label>
+        <div className='add-quiz-page__form--trick-answers'>
         {trickAnswers.map((answer, index) => (
           <InputField
             key={index}
@@ -86,9 +87,11 @@ const AddQuizPage = () => {
             placeholder={`Trick Answer ${index + 1}`}
           />
         ))}
+        </div>
 
         <div className="add-quiz-page__difficulty">
-          <h2>Select Difficulty</h2>
+        <label>Select Difficulty</label>
+          <div className="add-quiz-page__difficulty-wrapper">
           <button className={difficulty === 'Easy' ? 'selected' : ''} onClick={() => setDifficulty('Easy')}>
             Easy
           </button>
@@ -98,6 +101,7 @@ const AddQuizPage = () => {
           <button className={difficulty === 'Advanced' ? 'selected' : ''} onClick={() => setDifficulty('Advanced')}>
             Advanced
           </button>
+          </div>
         </div>
 
         {error && <p className="add-quiz-page__error">{error}</p>}
