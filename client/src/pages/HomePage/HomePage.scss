@@ -52,7 +52,7 @@ body {
     }
 
     &__error {
-      color: red;
+      color:$body-text-color;
       font-size: $mobile-body-text-size;
       margin-top: 10px;
     }

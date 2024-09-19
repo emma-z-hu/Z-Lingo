@@ -47,9 +47,24 @@ const HomePage = () => {
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
 
       <div className="home-page__difficulty-cards">
-        <DifficultyCard icon={easyIcon} label="Easy" onClick={() => handleDifficultySelect('Easy')} />
-        <DifficultyCard icon={intermediateIcon} label="Intermediate" onClick={() => handleDifficultySelect('Intermediate')} />
-        <DifficultyCard icon={advancedIcon} label="Advanced" onClick={() => handleDifficultySelect('Advanced')} />
+        <DifficultyCard
+          icon={easyIcon}
+          label="Easy"
+          selected={difficulty === 'Easy'}  // Pass selected state
+          onClick={() => handleDifficultySelect('Easy')}
+        />
+        <DifficultyCard
+          icon={intermediateIcon}
+          label="Intermediate"
+          selected={difficulty === 'Intermediate'}  // Pass selected state
+          onClick={() => handleDifficultySelect('Intermediate')}
+        />
+        <DifficultyCard
+          icon={advancedIcon}
+          label="Advanced"
+          selected={difficulty === 'Advanced'}  // Pass selected state
+          onClick={() => handleDifficultySelect('Advanced')}
+        />
       </div>
 
       {error && <p className="home-page__error">{error}</p>}  {/* Display error if no difficulty selected */}
