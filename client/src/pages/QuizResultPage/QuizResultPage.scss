@@ -10,6 +10,14 @@
     margin-bottom: $mobile-padding-between-components;
   }
 
+  &__percentile {
+    font-size: $mobile-body-text-size;
+    color: $body-text-color;
+    font-weight: $font-weight-demi;
+    margin-bottom: $mobile-padding-between-components;
+    padding: 0 16px;
+  }
+
   &__comment {
     font-size: $mobile-body-text-size;
     color: $body-text-color;

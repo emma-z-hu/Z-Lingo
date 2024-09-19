@@ -12,10 +12,14 @@
     font-size: $mobile-body-text-size;
     transition: background-color 0.3s ease;
   
+    // &:hover {
+    //   background-color: $primary-cta-hover-background-color;
+    //   border-color: $primary-cta-hover-border-color;
+    //   color: $primary-cta-hover-text-color;
+    // }
+
     &:hover {
-      background-color: $primary-cta-hover-background-color;
-      border-color: $primary-cta-hover-border-color;
-      color: $primary-cta-hover-text-color;
+      transform: scale(1.05);
     }
   
     &:active {

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import MultipleChoiceOption from '../../components/MultipleChoiceOption/MultipleChoiceOption';
-import Header from '../../components/Header/Header';
-import QuestionCount from '../../components/QuestionCount/QuestionCount';
-import Spinner from '../../components/Spinner/Spinner';
-import axios from 'axios';
-import './QuizPage.scss';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import MultipleChoiceOption from "../../components/MultipleChoiceOption/MultipleChoiceOption";
+import Header from "../../components/Header/Header";
+import QuestionCount from "../../components/QuestionCount/QuestionCount";
+import Spinner from "../../components/Spinner/Spinner";
+import axios from "axios";
+import "./QuizPage.scss";
 
 const API_URL = import.meta.env.VITE_URL;
 
@@ -13,7 +13,7 @@ const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [answers, setAnswers] = useState([]);  // Track user's answers
+  const [answers, setAnswers] = useState([]); // Track user's answers
   const [isCorrect, setIsCorrect] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -21,7 +21,7 @@ const QuizPage = () => {
   const location = useLocation();
 
   const searchParams = new URLSearchParams(location.search);
-  const difficulty = searchParams.get('difficulty');
+  const difficulty = searchParams.get("difficulty");
 
   useEffect(() => {
     axios
@@ -31,17 +31,17 @@ const QuizPage = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error('Failed to fetch quiz questions:', error);
+        console.error("Failed to fetch quiz questions:", error);
         setIsLoading(false);
       });
   }, [difficulty]);
 
   const handleOptionSelect = (option) => {
     const currentQuestion = questions[currentQuestionIndex];
-    
+
     setAnswers((prevAnswers) => [
       ...prevAnswers,
-      { questionId: currentQuestion.id, selectedOption: option }
+      { questionId: currentQuestion.id, selectedOption: option },
     ]);
 
     setSelectedOption(option);
@@ -72,10 +72,16 @@ const QuizPage = () => {
       .post(`${API_URL}/api/quiz/submit`, { answers, difficulty })
       .then((response) => {
         const { score, comment, meme, percentile } = response.data;
-        navigate(`/quiz/result?score=${score}&comment=${encodeURIComponent(comment)}&meme=${encodeURIComponent(meme)}&percentile=${percentile}&difficulty=${difficulty}`);
+        navigate(
+          `/quiz/result?score=${score}&comment=${encodeURIComponent(
+            comment
+          )}&meme=${encodeURIComponent(
+            meme
+          )}&percentile=${percentile}&difficulty=${difficulty}`
+        );
       })
       .catch((error) => {
-        console.error('Failed to submit quiz:', error);
+        console.error("Failed to submit quiz:", error);
       });
   };
 
@@ -85,29 +91,43 @@ const QuizPage = () => {
 
   const currentQuestion = questions[currentQuestionIndex];
 
+  const handleBackToHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className="quiz-page">
       <Header difficulty={difficulty} />
-      
+
       {isTransitioning && <Spinner />}
-      
-        <div className="quiz-page__main">
-          <h1 className="quiz-page__question">{currentQuestion.question}</h1>
-          <div className="quiz-page__options">
-            {currentQuestion.options.map((option) => (
-              <MultipleChoiceOption
-                key={option}
-                label={option}
-                isSelected={selectedOption === option}
-                isCorrect={isCorrect !== null && option === currentQuestion.correctOption}
-                isIncorrect={isCorrect === false && option === selectedOption}
-                onClick={() => handleOptionSelect(option)}
-              />
-            ))}
-          </div>
+
+      <div className="quiz-page__main">
+        <h1 className="quiz-page__question">{currentQuestion.question}</h1>
+        <div className="quiz-page__options">
+          {currentQuestion.options.map((option) => (
+            <MultipleChoiceOption
+              key={option}
+              label={option}
+              isSelected={selectedOption === option}
+              isCorrect={
+                isCorrect !== null && option === currentQuestion.correctOption
+              }
+              isIncorrect={isCorrect === false && option === selectedOption}
+              onClick={() => handleOptionSelect(option)}
+            />
+          ))}
         </div>
-        <QuestionCount currentQuestionIndex={currentQuestionIndex} totalQuestions={questions.length} />
-        </div>
+        <QuestionCount
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
+        />
+      </div>
+      <div className="quiz-page__bottom-section">
+        <p className="quiz-page__back-home" onClick={handleBackToHome}>
+          Back to home page
+        </p>
+      </div>
+    </div>
   );
 };
 

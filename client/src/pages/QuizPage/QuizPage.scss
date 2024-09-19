@@ -54,4 +54,10 @@
       }
     }
   }
+
+  &__back-home {
+    color:$title-text-color;
+    font-weight: $font-weight-demi;
+    cursor: pointer;
+  }
 }
