@@ -78,13 +78,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top:$mobile-padding-after-headlines*3;
+    padding-top:$mobile-padding-after-headlines*2;
     align-items: center;
   }
 
   &__error {
-    color: $body-text-color;
+    color:grey;
     font-size: $mobile-body-text-size;
-    margin-top: 10px;
+    margin-bottom: 0;
   }
 }
