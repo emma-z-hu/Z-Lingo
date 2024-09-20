@@ -7,8 +7,9 @@
   padding: 16px;
   text-align: center;
   width: 340px;
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
+  bottom: 0;
+
 
   &__text {
     margin: 0;

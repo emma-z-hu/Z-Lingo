@@ -27,12 +27,12 @@
 
   &__meme {
     max-width: 100%;
-    height: 250px;
+    max-height: 250px;
     width: auto;
     margin-bottom: $mobile-padding-between-components;
   }
 
-  &__cta {
+  &__cta { 
     display: flex;
     flex-direction: column;
     gap: 16px;
