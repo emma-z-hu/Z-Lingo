@@ -9,6 +9,7 @@ import intermediateIcon from '../../assets/icons/intermediate-icon.png';
 import advancedIcon from '../../assets/icons/advanced-icon.png';
 
 const HomePage = () => {
+  const [nickname, setNickname] = useState('');
   const [difficulty, setDifficulty] = useState(null);
   const [error, setError] = useState(''); // To store the error message
   const navigate = useNavigate();
@@ -21,8 +22,12 @@ const HomePage = () => {
 
   // Handle Start Quiz click
   const handleStartQuiz = () => {
+    if (!nickname) {
+      setError('Please enter a nickname to start the quiz.');
+      return;
+    }
     if (difficulty) {
-      navigate(`/quiz?difficulty=${difficulty}`);  // Navigate to QuizPage with query parameter
+      navigate(`/quiz?difficulty=${difficulty}&nickname=${nickname}`);  // Navigate to QuizPage with query parameter
     } else {
       setError('You need to select a difficulty level first to start the quiz.');
       const startQuizButton = document.querySelector('.primary-cta');
@@ -43,6 +48,14 @@ const HomePage = () => {
       <p className="home-page__subtitle">
         Can you slay that GenZ lingo like a total boss? Take this dope quiz to flex your slang knowledge!
       </p>
+
+
+      <InputField
+        label="Nickname"
+        value={nickname}
+        onChange={(e) => setNickname(e.target.value)}
+        placeholder="What’s your name, cap?"
+      />
 
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
 
