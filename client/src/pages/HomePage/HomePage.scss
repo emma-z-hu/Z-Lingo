@@ -59,9 +59,17 @@ body {
     }
 
     &__error {
-      color:grey;
+      color: grey;
       font-size: $mobile-body-text-size;
       margin-top: 10px;
+
+      &--nickname {
+        margin-top: 5px;
+      }
+
+      &--difficulty {
+        margin-top: 5px;
+      }
     }
   
     .shake {
@@ -73,5 +81,4 @@ body {
       20%, 60% { transform: translateX(-10px); }
       40%, 80% { transform: translateX(10px); }
     }
-  }
-  
+}
