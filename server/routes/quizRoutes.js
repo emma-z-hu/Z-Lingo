@@ -28,7 +28,7 @@ router.get('/quiz', async (req, res) => {
 
 // Submit answers, calculate score, save to score.json, and calculate percentile
 router.post('/quiz/submit', async (req, res) => {
-  const { answers, difficulty } = req.body;
+  const { answers, difficulty, username } = req.body; 
 
   if (!answers || !Array.isArray(answers)) {
     return res.status(400).json({ error: 'Invalid answers format' });
@@ -36,6 +36,10 @@ router.post('/quiz/submit', async (req, res) => {
 
   if (!difficulty || !['Easy', 'Intermediate', 'Advanced'].includes(difficulty)) {
     return res.status(400).json({ error: 'Invalid or missing difficulty level' });
+  }
+
+  if (!username) {
+    return res.status(400).json({ error: 'Missing username' });
   }
 
   try {
@@ -63,6 +67,7 @@ router.post('/quiz/submit', async (req, res) => {
 
     // Save the user's score to score.json
     const newScoreEntry = {
+      username: username,  // Save the username
       difficulty: difficulty,
       score: score
     };
