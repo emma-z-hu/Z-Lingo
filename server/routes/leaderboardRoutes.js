@@ -20,10 +20,10 @@ router.get('/', async (req, res) => {
     // Filter scores based on difficulty level
     const filteredScores = scores.filter(score => score.difficulty === difficulty);
 
-    // Sort scores in descending order, then get top 5
+    // Sort scores in descending order, then get top 10
     const topScores = filteredScores
       .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
+      .slice(0, 10);
 
     res.status(200).json({ leaderboard: topScores });
   } catch (error) {
