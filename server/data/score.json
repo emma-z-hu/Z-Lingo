@@ -174,5 +174,53 @@
   {
     "difficulty": "Easy",
     "score": 0
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 2
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 3
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 2
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 1
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 2
+  },
+  {
+    "difficulty": "Easy",
+    "score": 4
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 5
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 2
+  },
+  {
+    "difficulty": "Easy",
+    "score": 4
+  },
+  {
+    "difficulty": "Intermediate",
+    "score": 4
+  },
+  {
+    "difficulty": "Advanced",
+    "score": 3
+  },
+  {
+    "difficulty": "Intermediate",
+    "score": 2
   }
 ]
