@@ -33,7 +33,7 @@ const QuizPage = () => {
       .then((response) => {
         const shuffledQuestions = response.data.questions.map((question) => ({
           ...question,
-          options: shuffleOptions([...question.options]) 
+          options: shuffleOptions([...question.options]),
         }));
         setQuestions(shuffledQuestions);
         setIsLoading(false);
@@ -78,13 +78,21 @@ const QuizPage = () => {
   const submitQuiz = () => {
     axios
       .post(`${API_URL}/api/quiz/submit`, { answers, difficulty })
+      // .then((response) => {
+      //   const { score, comment, meme, percentile } = response.data;
+      //   navigate(
+      //     `/quiz/result?score=${score}&comment=${encodeURIComponent(
+      //       comment
+      //     )}&meme=${encodeURIComponent(
+      //       meme
+      //     )}&percentile=${percentile}&difficulty=${difficulty}`
+      //   );
+      // })
       .then((response) => {
-        const { score, comment, meme, percentile } = response.data;
+        const { score, comment, percentile } = response.data; // Removed 'meme'
         navigate(
           `/quiz/result?score=${score}&comment=${encodeURIComponent(
             comment
-          )}&meme=${encodeURIComponent(
-            meme
           )}&percentile=${percentile}&difficulty=${difficulty}`
         );
       })

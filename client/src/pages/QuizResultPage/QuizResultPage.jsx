@@ -4,6 +4,18 @@ import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import SecondaryCTA from '../../components/SecondaryCTA/SecondaryCTA';
 import './QuizResultPage.scss';
 
+import score0 from '../../assets/images/score-0.webp';
+import score1 from '../../assets/images/score-1.webp';
+import score2 from '../../assets/images/score-2.webp';
+import score3 from '../../assets/images/score-3.webp';
+import score4 from '../../assets/images/score-4.webp';
+import score5 from '../../assets/images/score-5.webp';
+import score6 from '../../assets/images/score-6.webp';
+import score7 from '../../assets/images/score-7.webp';
+import score8 from '../../assets/images/score-8.webp';
+import score9 from '../../assets/images/score-9.webp';
+import score10 from '../../assets/images/score-10.webp';
+
 const QuizResultPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -11,9 +23,22 @@ const QuizResultPage = () => {
   const searchParams = new URLSearchParams(location.search);
   const score = searchParams.get('score');
   const comment = searchParams.get('comment');
-  const meme = searchParams.get('meme');
   const percentile = searchParams.get('percentile');
   const difficulty = searchParams.get('difficulty'); 
+
+  const scoreImages = {
+    0: score0,
+    1: score1,
+    2: score2,
+    3: score3,
+    4: score4,
+    5: score5,
+    6: score6,
+    7: score7,
+    8: score8,
+    9: score9,
+    10: score10,
+  };
 
   const handleStartAnotherQuiz = () => {
     navigate(`/quiz?difficulty=${difficulty}`);
@@ -29,7 +54,7 @@ const QuizResultPage = () => {
       <p className="quiz-result-page__percentile">You scored higher than {percentile}% of participants!</p>
 
       <p className="quiz-result-page__comment">{decodeURIComponent(comment)}</p>
-      <img className="quiz-result-page__meme" src={decodeURIComponent(meme)} alt="Meme" />
+      <img className="quiz-result-page__meme" src={scoreImages[score]} alt={`Score ${score} Meme`} />
 
       <div className="quiz-result-page__cta">
         <PrimaryCTA label="Start another quiz" onClick={handleStartAnotherQuiz} />
