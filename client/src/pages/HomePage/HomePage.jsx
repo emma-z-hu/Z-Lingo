@@ -12,47 +12,44 @@ import advancedIcon from '../../assets/icons/advanced-icon.png';
 const HomePage = () => {
   const [nickname, setNickname] = useState('');
   const [difficulty, setDifficulty] = useState(null);
-  const [nicknameError, setNicknameError] = useState(''); // Nickname error state
-  const [difficultyError, setDifficultyError] = useState(''); // Difficulty error state
+  const [nicknameError, setNicknameError] = useState(''); 
+  const [difficultyError, setDifficultyError] = useState(''); 
   const navigate = useNavigate();
 
-  // Handle difficulty selection
   const handleDifficultySelect = (level) => {
     setDifficulty(level);
-    if (difficultyError) setDifficultyError(''); // Clear difficulty error when selected
+    if (difficultyError) setDifficultyError(''); 
   };
 
-  // Handle nickname change
   const handleNicknameChange = (e) => {
     setNickname(e.target.value);
-    if (nicknameError) setNicknameError(''); // Clear nickname error when entered
+    if (nicknameError) setNicknameError(''); 
   };
 
-  // Handle Start Quiz click
   const handleStartQuiz = () => {
     let isError = false;
 
     if (!nickname.trim()) {
-      setNicknameError('Please enter your nickname to start the quiz.');
+      setNicknameError('Enter your nickname to start the quiz.');
       isError = true;
     }
 
     if (!difficulty) {
-      setDifficultyError('You need to select a difficulty level first to start the quiz.');
+      setDifficultyError('Select a difficulty level first to start the quiz.');
       isError = true;
     }
 
     if (!isError) {
-      navigate(`/quiz?difficulty=${difficulty}&nickname=${encodeURIComponent(nickname)}`); // Navigate to QuizPage with query parameter
+      navigate(`/quiz?difficulty=${difficulty}&nickname=${encodeURIComponent(nickname)}`); 
     }
   };
 
-  // Handle See Leaderboard click
+
   const handleSeeLeaderboard = () => {
     if (difficulty) {
-      navigate(`/leaderboard?difficulty=${difficulty}`); // Navigate to LeaderboardPage with difficulty parameter
+      navigate(`/leaderboard?difficulty=${difficulty}`); 
     } else {
-      setDifficultyError('You need to select a difficulty level first to see the leaderboard.');
+      setDifficultyError('Select a difficulty level first to see the leaderboard.');
     }
   };
 
@@ -75,7 +72,7 @@ const HomePage = () => {
         onChange={handleNicknameChange}
         placeholder="What’s your name, cap?"
       />
-      {nicknameError && <p className="home-page__error home-page__error--nickname">{nicknameError}</p>} {/* Nickname error */}
+      {nicknameError && <p className="home-page__error home-page__error--nickname">{nicknameError}</p>} 
 
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
 
@@ -83,28 +80,28 @@ const HomePage = () => {
         <DifficultyCard
           icon={easyIcon}
           label="Easy"
-          selected={difficulty === 'Easy'}  // Pass selected state
+          selected={difficulty === 'Easy'} 
           onClick={() => handleDifficultySelect('Easy')}
         />
         <DifficultyCard
           icon={intermediateIcon}
           label="Intermediate"
-          selected={difficulty === 'Intermediate'}  // Pass selected state
+          selected={difficulty === 'Intermediate'}  
           onClick={() => handleDifficultySelect('Intermediate')}
         />
         <DifficultyCard
           icon={advancedIcon}
           label="Advanced"
-          selected={difficulty === 'Advanced'}  // Pass selected state
+          selected={difficulty === 'Advanced'}  
           onClick={() => handleDifficultySelect('Advanced')}
         />
       </div>
-      {difficultyError && <p className="home-page__error home-page__error--difficulty">{difficultyError}</p>} {/* Difficulty error */}
+      {difficultyError && <p className="home-page__error home-page__error--difficulty">{difficultyError}</p>}
 
       <div className="home-page__cta">
-        <PrimaryCTA label="Start quiz" onClick={handleStartQuiz} />
-        <PrimaryCTA label="See Leaderboard" onClick={handleSeeLeaderboard} /> {/* New CTA for See Leaderboard */}
-        <SecondaryCTA label="Add a question" onClick={handleAddQuestion} />
+        <PrimaryCTA label="Start Quiz" onClick={handleStartQuiz} />
+        <PrimaryCTA label="See Leaderboard" onClick={handleSeeLeaderboard} /> 
+        <SecondaryCTA label="Add a Question" onClick={handleAddQuestion} />
       </div>
     </div>
   );

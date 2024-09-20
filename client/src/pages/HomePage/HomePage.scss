@@ -15,6 +15,7 @@ body {
       font-size: $mobile-h1-text-size;
       color: $title-text-color;
       margin-bottom: $mobile-padding-after-headlines;
+      margin-top: 0;
       padding:$mobile-padding-after-headlines 0;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
     }
@@ -43,6 +44,7 @@ body {
       color: $title-text-color;
       padding:$mobile-padding-after-headlines 0;
       font-weight: $font-weight-bold;
+      margin-bottom:0;
     }
   
     &__difficulty-cards {
@@ -64,11 +66,7 @@ body {
       margin-top: 10px;
 
       &--nickname {
-        margin-top: 5px;
-      }
-
-      &--difficulty {
-        margin-top: 5px;
+        margin-bottom: 0;
       }
     }
   
