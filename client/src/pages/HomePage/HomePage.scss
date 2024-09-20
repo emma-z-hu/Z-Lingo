@@ -30,7 +30,7 @@ body {
     }
 
     &__nickname-title {
-      font-size: $mobile-h2-text-size;
+      font-size: $mobile-h3-text-size;
       color: $title-text-color;
       margin-top: $mobile-padding-after-headlines;
     }
@@ -40,7 +40,7 @@ body {
     }
 
     &__difficulty-title {
-      font-size: $mobile-h2-text-size;
+      font-size: $mobile-h3-text-size;
       color: $title-text-color;
       padding:$mobile-padding-after-headlines 0;
       font-weight: $font-weight-bold;
