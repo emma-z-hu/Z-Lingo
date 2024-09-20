@@ -1,0 +1,31 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+@use '../../styles/partials/variables' as *;
+
+.leaderboard-page {
+  padding: 16px;
+
+  &__title {
+    font-size: $mobile-h2-text-size;
+    color: $title-text-color;
+    margin-bottom: $mobile-padding-after-headlines;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: $card-background-color;
+    }
+  }
+}

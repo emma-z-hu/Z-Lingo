@@ -27,6 +27,12 @@ body {
       font-weight: $font-weight-regular;
       line-height: $mobile-h2-line-height;
     }
+
+    &__nickname-title {
+      font-size: $mobile-h2-text-size;
+      color: $title-text-color;
+      margin-top: $mobile-padding-after-headlines;
+    }
   
     &__difficulty-title {
       font-size: $mobile-h2-text-size;

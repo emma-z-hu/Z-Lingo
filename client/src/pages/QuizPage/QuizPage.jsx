@@ -22,6 +22,8 @@ const QuizPage = () => {
 
   const searchParams = new URLSearchParams(location.search);
   const difficulty = searchParams.get("difficulty");
+  const nickname = searchParams.get('nickname'); // Get username from URL params
+
 
   const shuffleOptions = (options) => {
     return options.sort(() => Math.random() - 0.5);
@@ -77,23 +79,13 @@ const QuizPage = () => {
 
   const submitQuiz = () => {
     axios
-      .post(`${API_URL}/api/quiz/submit`, { answers, difficulty })
-      // .then((response) => {
-      //   const { score, comment, meme, percentile } = response.data;
-      //   navigate(
-      //     `/quiz/result?score=${score}&comment=${encodeURIComponent(
-      //       comment
-      //     )}&meme=${encodeURIComponent(
-      //       meme
-      //     )}&percentile=${percentile}&difficulty=${difficulty}`
-      //   );
-      // })
-      .then((response) => {
-        const { score, comment, percentile } = response.data; // Removed 'meme'
+    .post(`${API_URL}/api/quiz/submit`, { answers, difficulty, username: nickname }) // Include username in submission
+    .then((response) => {
+        const { score, comment, percentile } = response.data; 
         navigate(
           `/quiz/result?score=${score}&comment=${encodeURIComponent(
             comment
-          )}&percentile=${percentile}&difficulty=${difficulty}`
+          )}&percentile=${percentile}&difficulty=${difficulty}&nickname=${encodeURIComponent(nickname)}` // Include username in URL
         );
       })
       .catch((error) => {
