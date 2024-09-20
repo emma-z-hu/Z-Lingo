@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 
   &__title {
     font-size: $mobile-h2-text-size;
@@ -52,5 +53,11 @@
         color: $white-text-color;
       }
     }
+  }
+
+  &__back-home {
+    color:$title-text-color;
+    font-weight: $font-weight-demi;
+    cursor: pointer;
   }
 }

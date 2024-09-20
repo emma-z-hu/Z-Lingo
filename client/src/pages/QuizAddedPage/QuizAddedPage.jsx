@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PrimaryCTA from '../../components/PrimaryCTA/PrimaryCTA';
 import SecondaryCTA from '../../components/SecondaryCTA/SecondaryCTA';
+import ThankYouImage from '../../assets/images/you-rock.webp';
 import './QuizAddedPage.scss';
 
 const QuizAddedPage = () => {
@@ -21,7 +22,11 @@ const QuizAddedPage = () => {
       <p className="quiz-added-page__message">
         Your quiz has been successfully added to the database. You can add another quiz or return to the home page.
       </p>
-
+      <img 
+        src={ThankYouImage}
+        alt="You Rock Cute Dog" 
+        className="quiz-added-page__image"
+      />
       <div className="quiz-added-page__cta">
         <PrimaryCTA label="Add another quiz" onClick={handleAddAnotherQuiz} />
         <SecondaryCTA label="Back to Home page" onClick={handleBackToHome} />

@@ -16,7 +16,9 @@ body {
   &__title {
     font-size: $mobile-h2-text-size;
     color: $title-text-color;
-    margin-bottom: $mobile-padding-between-components;
+    padding-bottom: $mobile-padding-between-components;
+    padding-top: $mobile-padding-between-components;
+    margin-bottom: 0;
   }
 
   &__form {
@@ -29,14 +31,6 @@ body {
       flex-direction: column;
       margin-top:$mobile-padding-before-headlines;
       margin-bottom:$mobile-padding-after-headlines;
-
-      // input {
-      //   // margin-top: 8px;
-      //   // padding: 8px;
-      //   // border: 1px solid $inactive-input-field-outline-color;
-      //   // border-radius: $input-field-border-radius;
-      //   // width: 100%;
-      // }
     }
 
     &--trick-answers {
@@ -44,7 +38,6 @@ body {
       flex-direction: column;
       gap: $increment;
     }
-    
   }
 
   &__difficulty-wrapper {
@@ -58,14 +51,13 @@ body {
     margin-top: 16px;
     display: flex;
     flex-direction: column;
-    // gap: 16px;
 
     button {
       padding: 12px;
       border-radius: $cta-border-radius;
       cursor: pointer;
       background-color: $card-background-color;
-      border: 1px solid $primary-cta-default-border-color;
+      border: 1px solid $inactive-input-field-outline-color;
       width: 105px;
 
       &:hover {
@@ -86,17 +78,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding:$mobile-padding-after-headlines*5 0;
-    align-items: center
-    // position:fixed;
-    // bottom: 20px;
-    // align-items: center;
-    // text-align: center;
+    padding-top:$mobile-padding-after-headlines*2;
+    align-items: center;
   }
 
   &__error {
-    color: $body-text-color;
+    color:grey;
     font-size: $mobile-body-text-size;
-    margin-top: 10px;
+    margin-bottom: 0;
   }
 }
