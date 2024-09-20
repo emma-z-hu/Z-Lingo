@@ -35,7 +35,7 @@ const HomePage = () => {
     }
 
     if (!difficulty) {
-      setDifficultyError('Select a difficulty level first to start the quiz.');
+      setDifficultyError('Select a difficulty level to start the quiz.');
       isError = true;
     }
 
@@ -49,7 +49,7 @@ const HomePage = () => {
     if (difficulty) {
       navigate(`/leaderboard?difficulty=${difficulty}`); 
     } else {
-      setDifficultyError('Select a difficulty level first to see the leaderboard.');
+      setDifficultyError('Select a difficulty level to see the leaderboard.');
     }
   };
 
@@ -100,7 +100,7 @@ const HomePage = () => {
 
       <div className="home-page__cta">
         <PrimaryCTA label="Start Quiz" onClick={handleStartQuiz} />
-        <PrimaryCTA label="See Leaderboard" onClick={handleSeeLeaderboard} /> 
+        <SecondaryCTA label="See Leaderboard" onClick={handleSeeLeaderboard} /> 
         <SecondaryCTA label="Add a Question" onClick={handleAddQuestion} />
       </div>
     </div>
