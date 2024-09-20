@@ -12,16 +12,14 @@ import advancedIcon from '../../assets/icons/advanced-icon.png';
 const HomePage = () => {
   const [nickname, setNickname] = useState('');
   const [difficulty, setDifficulty] = useState(null);
-  const [error, setError] = useState(''); // To store the error message
+  const [error, setError] = useState(''); 
   const navigate = useNavigate();
 
-  // Handle difficulty selection
   const handleDifficultySelect = (level) => {
     setDifficulty(level);
-    setError('');  // Reset error when a difficulty is selected
+    setError('');  
   };
 
-  // Handle Start Quiz click
   const handleStartQuiz = () => {
     if (!nickname.trim()) {
       setError('Please enter your nickname to start the quiz.');
@@ -39,6 +37,14 @@ const HomePage = () => {
     }
   };
 
+  const handleSeeLeaderboard = () => {
+    if (difficulty) {
+      navigate(`/leaderboard?difficulty=${difficulty}`);  // Navigate to LeaderboardPage with difficulty parameter
+    } else {
+      setError('You need to select a difficulty level first to see the leaderboard.');
+    }
+  };
+
   const handleAddQuestion = () => {
     navigate('/quiz/add');
   };
@@ -52,12 +58,13 @@ const HomePage = () => {
 
       <h2 className="home-page__nickname-title">Nickname</h2>
       <InputField
+        className="home-page__nickname-input"
         label=""
         value={nickname}
         onChange={(e) => setNickname(e.target.value)}
         placeholder="What’s your name, cap?"
       />
-      {error && <p className="home-page__error">{error}</p>} {/* Display error if no nickname entered */}
+      {error && <p className="home-page__error">{error}</p>} 
 
 
       <h2 className="home-page__difficulty-title">Select a difficulty</h2>
@@ -87,6 +94,7 @@ const HomePage = () => {
 
       <div className="home-page__cta">
         <PrimaryCTA label="Start quiz" onClick={handleStartQuiz} />
+        <SecondaryCTA label="See Leaderboard" onClick={handleSeeLeaderboard} /> {/* New CTA for See Leaderboard */}
         <SecondaryCTA label="Add a question" onClick={handleAddQuestion} />
       </div>
     </div>

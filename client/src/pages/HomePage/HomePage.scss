@@ -34,11 +34,13 @@ body {
       margin-top: $mobile-padding-after-headlines;
     }
   
+    &__nickname-input {
+      width: 50%;
+    }
+
     &__difficulty-title {
       font-size: $mobile-h2-text-size;
       color: $title-text-color;
-      margin-top: $mobile-padding-after-headlines*3;
-      margin-bottom: $mobile-padding-after-headlines;
       padding:$mobile-padding-after-headlines 0;
       font-weight: $font-weight-bold;
     }
@@ -52,8 +54,8 @@ body {
     &__cta {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      padding:$mobile-padding-after-headlines*5 0;
+      gap: 15px;
+      padding:$mobile-padding-after-headlines 0;
     }
 
     &__error {
