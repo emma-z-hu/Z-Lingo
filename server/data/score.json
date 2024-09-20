@@ -278,5 +278,25 @@
     "username": "Morgan",
     "difficulty": "Intermediate",
     "score": 2
+  },
+  {
+    "username": "Em",
+    "difficulty": "Advanced",
+    "score": 4
+  },
+  {
+    "username": "HAHA",
+    "difficulty": "Advanced",
+    "score": 5
+  },
+  {
+    "username": "Emma",
+    "difficulty": "Intermediate",
+    "score": 2
+  },
+  {
+    "username": "Emma",
+    "difficulty": "Intermediate",
+    "score": 5
   }
 ]
