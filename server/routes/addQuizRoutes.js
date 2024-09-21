@@ -3,7 +3,6 @@ import fs from 'fs/promises';
 
 const router = Router();
 
-// Add a new quiz question
 router.post('/', async (req, res) => {
   const { slang, question, options, correctOption, difficulty } = req.body;
 

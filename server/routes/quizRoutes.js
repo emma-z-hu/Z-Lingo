@@ -3,7 +3,6 @@ import fs from 'fs/promises';
 
 const router = Router();
 
-// Fetch 10 random questions by difficulty
 router.get('/quiz', async (req, res) => {
   const { difficulty } = req.query;
 
@@ -26,7 +25,6 @@ router.get('/quiz', async (req, res) => {
   }
 });
 
-// Submit answers, calculate score, save to score.json, and calculate percentile
 router.post('/quiz/submit', async (req, res) => {
   const { answers, difficulty, username } = req.body;
 
@@ -48,7 +46,6 @@ router.post('/quiz/submit', async (req, res) => {
 
     let score = 0;
 
-    // Calculate the score based on user answers
     answers.forEach(answer => {
       const question = questions.find(q => q.id === answer.questionId);
       if (question && question.correctOption === answer.selectedOption) {
@@ -56,18 +53,15 @@ router.post('/quiz/submit', async (req, res) => {
       }
     });
 
-    // Load comments based on score
     const commentsData = await fs.readFile('./data/comments.json', 'utf8');
     const commentsList = JSON.parse(commentsData);
     const result = commentsList.find(comment => comment.score === score);
 
-    // Load historical scores from score.json and filter by difficulty
     const scoreData = await fs.readFile('./data/score.json', 'utf8');
     const scores = JSON.parse(scoreData).filter(s => s.difficulty === difficulty);
 
-    // Save the user's score to score.json
     const newScoreEntry = {
-      username: username, // Add username to the score entry
+      username: username, 
       difficulty: difficulty,
       score: score
     };
@@ -76,14 +70,13 @@ router.post('/quiz/submit', async (req, res) => {
     fullScoreList.push(newScoreEntry);
     await fs.writeFile('./data/score.json', JSON.stringify(fullScoreList, null, 2), 'utf8');
 
-    // Calculate the percentile
     const totalScores = scores.length;
     const scoresLessThanCurrent = scores.filter(s => s.score < score).length;
     const percentile = Math.floor((scoresLessThanCurrent / totalScores) * 100);
 
     const response = {
       score: score,
-      comment: result ? result.comment : 'Great job!', // Handle case when no comment is found
+      comment: result ? result.comment : 'Great job!', 
       percentile: percentile
     };
 
