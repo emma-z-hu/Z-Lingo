@@ -24,7 +24,6 @@ const QuizPage = () => {
   const difficulty = searchParams.get("difficulty");
   const nickname = searchParams.get('nickname'); // Get username from URL params
 
-
   const shuffleOptions = (options) => {
     return options.sort(() => Math.random() - 0.5);
   };
@@ -66,21 +65,27 @@ const QuizPage = () => {
     }, 500);
 
     setTimeout(() => {
+      // Check if it is the last question before submitting
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        setSelectedOption(null);
+        setIsCorrect(null);
+        setIsTransitioning(false);
       } else {
-        submitQuiz();
+        // Ensure the last answer is included in answers before submitting
+        const updatedAnswers = [
+          ...answers,
+          { questionId: currentQuestion.id, selectedOption: option },
+        ];
+        submitQuiz(updatedAnswers);
       }
-      setSelectedOption(null);
-      setIsCorrect(null);
-      setIsTransitioning(false);
     }, 1000);
   };
 
-  const submitQuiz = () => {
+  const submitQuiz = (finalAnswers) => {
     axios
-    .post(`${API_URL}/api/quiz/submit`, { answers, difficulty, username: nickname }) // Include username in submission
-    .then((response) => {
+      .post(`${API_URL}/api/quiz/submit`, { answers: finalAnswers, difficulty, username: nickname }) // Include username in submission
+      .then((response) => {
         const { score, comment, percentile } = response.data; 
         navigate(
           `/quiz/result?score=${score}&comment=${encodeURIComponent(
