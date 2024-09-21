@@ -1090,31 +1090,5 @@
     ],
     "correctOption": "Emphasizing truth or sincerity",
     "difficulty": "Intermediate"
-  },
-  {
-    "id": 85,
-    "slang": "Sussy",
-    "question": "What does 'Sussy' mean?",
-    "options": [
-      "Suspicious or suspect",
-      "Friendly and kind",
-      "Quick and speedy",
-      "Lazy and tired"
-    ],
-    "correctOption": "Suspicious or suspect",
-    "difficulty": "Easy"
-  },
-  {
-    "id": 86,
-    "slang": "TBH",
-    "question": "What does \"TBH\" mean?",
-    "options": [
-      "Too busy here",
-      "To be hyped",
-      "Take back help",
-      "To be honest"
-    ],
-    "correctOption": "To be honest",
-    "difficulty": "Easy"
   }
 ]
