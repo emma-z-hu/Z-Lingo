@@ -11,12 +11,6 @@
     cursor: pointer;
     font-size: $mobile-body-text-size;
     transition: background-color 0.3s ease;
-  
-    // &:hover {
-    //   background-color: $secondary-cta-hover-background-color;
-    //   border-color: $secondary-cta-hover-border-color;
-    //   color: $secondary-cta-hover-text-color;
-    // }
 
     &:hover {
       transform: scale(1.05);

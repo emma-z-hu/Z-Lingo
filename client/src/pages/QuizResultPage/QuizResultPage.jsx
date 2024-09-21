@@ -25,7 +25,7 @@ const QuizResultPage = () => {
   const comment = searchParams.get('comment');
   const percentile = searchParams.get('percentile');
   const difficulty = searchParams.get('difficulty'); 
-  const nickname = searchParams.get('nickname'); // Get username from URL params
+  const nickname = searchParams.get('nickname'); 
 
 
   const scoreImages = {
@@ -59,7 +59,7 @@ const QuizResultPage = () => {
       <h1 className="quiz-result-page__title">{nickname}, you scored {score}/10</h1>
       <p className="quiz-result-page__percentile">You scored higher than {percentile}% of participants!</p>
 
-      <PrimaryCTA label="See the leaderboard" onClick={handleLeaderboard} /> {/* New CTA for Leaderboard */}
+      <PrimaryCTA label="See Leaderboard" onClick={handleLeaderboard} /> 
 
       <p className="quiz-result-page__comment">{decodeURIComponent(comment)}</p>
       <img className="quiz-result-page__meme" src={scoreImages[score]} alt={`Score ${score} Meme`} />

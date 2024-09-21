@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PrimaryCTA from "../../components/PrimaryCTA/PrimaryCTA";
 import SecondaryCTA from "../../components/SecondaryCTA/SecondaryCTA";
-import InputField from "../../components/InputField/InputField"; // Import InputField
+import InputField from "../../components/InputField/InputField"; 
 import axios from "axios";
 import "./AddQuizPage.scss";
 
@@ -23,7 +23,6 @@ const AddQuizPage = () => {
   };
 
   const handleSubmit = () => {
-    // Validation
     if (
       !slang ||
       !meaning ||
@@ -34,20 +33,17 @@ const AddQuizPage = () => {
       return;
     }
 
-    // Combine correct meaning with trick answers
     const newQuiz = {
       slang,
       question: `What does "${slang}" mean?`,
-      options: [...trickAnswers, meaning], // Combine trick answers with correct meaning
+      options: [...trickAnswers, meaning],
       correctOption: meaning,
       difficulty,
     };
 
-    // Post the new quiz to the backend
     axios
       .post(`${API_URL}/api/quiz/add`, newQuiz)
       .then(() => {
-        // Navigate to the new confirmation page '/quiz/add/complete'
         navigate("/quiz/add/complete");
       })
       .catch((error) => {
@@ -65,7 +61,6 @@ const AddQuizPage = () => {
       <h1 className="add-quiz-page__title">Add a New Quiz</h1>
 
       <div className="add-quiz-page__form">
-        {/* Use InputField component for slang */}
         <InputField
           label="Slang Word"
           value={slang}
@@ -73,7 +68,6 @@ const AddQuizPage = () => {
           placeholder="Enter the slang word"
         />
 
-        {/* Use InputField component for correct meaning */}
         <InputField
           label="Correct Meaning"
           value={meaning}
@@ -81,7 +75,6 @@ const AddQuizPage = () => {
           placeholder="Enter the correct meaning"
         />
 
-        {/* Use InputField component for each trick answer */}
         <label>Trick Answers</label>
         <div className="add-quiz-page__form--trick-answers">
           {trickAnswers.map((answer, index) => (

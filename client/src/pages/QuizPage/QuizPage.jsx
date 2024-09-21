@@ -13,7 +13,7 @@ const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [answers, setAnswers] = useState([]); // Track user's answers
+  const [answers, setAnswers] = useState([]); 
   const [isCorrect, setIsCorrect] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -22,7 +22,7 @@ const QuizPage = () => {
 
   const searchParams = new URLSearchParams(location.search);
   const difficulty = searchParams.get("difficulty");
-  const nickname = searchParams.get('nickname'); // Get username from URL params
+  const nickname = searchParams.get('nickname'); 
 
   const shuffleOptions = (options) => {
     return options.sort(() => Math.random() - 0.5);
@@ -65,14 +65,12 @@ const QuizPage = () => {
     }, 500);
 
     setTimeout(() => {
-      // Check if it is the last question before submitting
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         setSelectedOption(null);
         setIsCorrect(null);
         setIsTransitioning(false);
       } else {
-        // Ensure the last answer is included in answers before submitting
         const updatedAnswers = [
           ...answers,
           { questionId: currentQuestion.id, selectedOption: option },
@@ -84,13 +82,13 @@ const QuizPage = () => {
 
   const submitQuiz = (finalAnswers) => {
     axios
-      .post(`${API_URL}/api/quiz/submit`, { answers: finalAnswers, difficulty, username: nickname }) // Include username in submission
+      .post(`${API_URL}/api/quiz/submit`, { answers: finalAnswers, difficulty, username: nickname }) 
       .then((response) => {
         const { score, comment, percentile } = response.data; 
         navigate(
           `/quiz/result?score=${score}&comment=${encodeURIComponent(
             comment
-          )}&percentile=${percentile}&difficulty=${difficulty}&nickname=${encodeURIComponent(nickname)}` // Include username in URL
+          )}&percentile=${percentile}&difficulty=${difficulty}&nickname=${encodeURIComponent(nickname)}` 
         );
       })
       .catch((error) => {
@@ -137,7 +135,7 @@ const QuizPage = () => {
       </div>
       <div className="quiz-page__bottom-section">
         <p className="quiz-page__back-home" onClick={handleBackToHome}>
-          Back to home page
+          Back to Home Page
         </p>
       </div>
     </div>

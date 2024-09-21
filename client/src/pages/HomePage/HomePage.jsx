@@ -101,7 +101,7 @@ const HomePage = () => {
       <div className="home-page__cta">
         <PrimaryCTA label="Start Quiz" onClick={handleStartQuiz} />
         <SecondaryCTA label="See Leaderboard" onClick={handleSeeLeaderboard} /> 
-        <SecondaryCTA label="Add a Question" onClick={handleAddQuestion} />
+        <SecondaryCTA label="Add a New Slang" onClick={handleAddQuestion} />
       </div>
     </div>
   );
