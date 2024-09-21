@@ -2,23 +2,97 @@
 
 Z-Lingo
 
+## Setup Instructions
+
+### The app has been deployed! Click on the URL below to try it out:
+
+```
+placeholder url
+```
+
+
+### Alternatively, to run it locally:
+
+#### Step 1: Clone the Repository
+First, clone the repository to your local machine using the following command:
+
+```
+git clone https://github.com/emma-z-hu/z-lingo.git
+```
+
+Navigate into the cloned directory:
+
+```
+cd emma-hu-z-lingo
+```
+
+#### Step 2: Set Up the Backend
+Navigate to the server directory:
+
+```
+cd server/
+```
+
+
+Install the required dependencies:
+
+```
+npm install
+```
+
+
+Set up the environment variables. Create a .env file in the server directory with the following content:
+```
+PORT=8080
+CORS_ORIGIN=http://localhost:5173
+```
+You can modify the port if needed.
+
+Start the backend server:
+
+```
+npm start
+```
+
+The server should start on the specified port (default is 8080).
+
+#### Step 3: Set Up the Frontend
+Navigate to the client directory:
+```
+cd ../client
+```
+
+Install the required dependencies:
+```
+npm install
+```
+
+Start the frontend development server:
+```
+npm run dev
+```
+
+The frontend should now be running at http://localhost:5173 .
+
+
+
 ## Overview
 
-Z-Lingo is an interactive web application that gamifies the learning experience for Boomers and Millennials, helping them assess and improve their understanding of Gen Z slangs. Users are presented with fun and challenging quizzes, allowing them to stay updated with the latest language trends of younger generations.
+Z-Lingo is an interactive web application that gamifies the learning experience for Boomers and Millennials, helping them assess and improve their understanding of Gen Z / Gen Alpha slangs. Users are presented with fun and challenging quizzes, allowing them to stay updated with the latest language trends of younger generations.
 
 ### Problem Space
 
-Language evolves rapidly, and with each generation comes new slang and expressions. Boomers and Millennials often find themselves disconnected from Gen Z's communication styles, which can lead to misunderstandings and feelings of being out of touch. Z-Lingo addresses this gap by offering an entertaining platform where users can test their knowledge of Gen Z slang, learn new phrases, and improve their cultural literacy in a fun and engaging way. #NoMoreFOMO
+Language evolves rapidly, and with each generation comes new slang and expressions. Boomers and Millennials often find themselves disconnected from Gen Z / Alpha's communication styles, which can lead to misunderstandings and feelings of being out of touch. Z-Lingo addresses this gap by offering an entertaining platform where users can test their knowledge of Gen Z / Alpha slang, learn new phrases, and improve their cultural literacy in a fun and engaging way. #NoMoreFOMO
 
 ### User Profile
 
 Boomers and Millennials:
 
-- Interested in understanding and keeping up with Gen Z slang.
+- Interested in understanding and keeping up with Gen Z / Alpha slang.
 - Looking for an enjoyable and educational experience.
 - Competitive users who enjoy gamified learning experiences.
 
-GenZ's:
+Gen Z / Alpha:
 
 - Looking to get up with their peers
 - Interested in contributing their knowledge in latest language trends.
@@ -27,17 +101,20 @@ GenZ's:
 
 Phase 1 (MVP) features:
 
-- As a user, I want to be presented with 10 multiple-choice questions featuring Gen Z slang terms so I can test my knowledge.
+- As a user, I want to be presented with 10 multiple-choice questions featuring Gen Z / Alpha slang terms so I can test my knowledge.
 - As a user, I want to categorize quizzes by difficulty level to tailor my learning experience.
-- As a user, I want to see my score immediately after completing the quiz so I can know how well I did.
+- As a user, I want to see my score and percentile immediately after completing the quiz so I can know how well I did.
+- As a user, I want to see how ranking compared to other users to gauge my performance.
 - As a user, I want to contribute by adding new slang terms and creating quiz questions to enhance the content.
 
 Phase 2 features:
 
-- As a user, I want to see my ranking compared to other users to gauge my performance.
+- As a user, I want to some assistant from AI when creating new quiz questions.
 - As a user, I want to receive a "Gen Z Slang of the Day" to gradually expand my vocabulary.
 - As a user, I want to sign up and log in to track my quiz history and progress over time.
 - As a logged-in user, I want to access a leaderboard to see how I compare with others.
+- As a user, I do not wish to see sensitive / violent / inappropriate content.
+- As a user, I want to get an optimal experience on all devices (desktop / tablet / mobile).
 
 ## Implementation
 
@@ -53,19 +130,22 @@ Phase 2 features:
     - knex
     - express
     - bcrypt for password hashing
-- Database: MySQL for storing user data, quiz questions, and results.
+- Database (optional): MySQL for storing user data, quiz questions, and results.
 
 ### APIs
 
 - Custom API: A custom-built API will manage user data, quiz content, scoring, and rankings.
-- External API (Optional): An external API providing a repository of Gen Z slang and their definitions may be integrated to seed the quiz database. For the MVP, the content will primarily be internally curated.
+- External API (Optional): 
+i) An external API providing a repository of Gen Z slang and their definitions may be integrated to seed the quiz database. For the MVP, the content will primarily be internally curated. ii) An OpenAI API providing tailored learning experience, as well as content assistance for new quiz creation.
 
 ### Sitemap
 
-- Home Page: Introduction to Z-Lingo and a call-to-action to start the quiz.
-- Quiz Page: Displays 10 multiple-choice questions for the user to answer.
-- Results Page: Shows the user's score.
+- Home Page: Introduction to Z-Lingo and  call-to-actions to start the quiz / see the leaderboard / add a new quiz.
+- Quiz Page: Displays 10 multiple-choice questions for the user to answer, based on the difficulty level selected.
+- Quiz Results Page: Shows the user's score, percentile, and comments. Call-to-actions to start another quiz / see the leaderboard / return to home page.
 - Create A Quiz Page: Allows user to contribute new slang terms and create quiz questions to add to the quiz inventory.
+- Quiz Added Page: Confirms quiz has been added, with call-to-actions to add another quiz or return to home page.
+- Leaderboard Page: Shows the top 10 scores,and the username for the difficulty level selected, with call-to-action to return to home page.
 
 
 ### Mockups
@@ -78,11 +158,10 @@ Phase 2 features:
 #### Quiz Page
 
 ![](prototypes/quiz-question.png)
-![](prototypes/quiz-answer-correct.png)
-![](prototypes/quiz-answer-incorrect.png)
+![](prototypes/quiz-question-correct.png)
+![](prototypes/quiz-question-incorrect.png)
 
-
-#### Result Page
+#### Quiz Result Page
 
 ![](prototypes/quiz-result.png)
 
@@ -90,11 +169,16 @@ Phase 2 features:
 
 ![](prototypes/add-new-quiz-blank.png)
 ![](prototypes/add-new-quiz-filled.png)
+
+#### Quiz Added Page
 ![](prototypes/new-quiz-added.png)
 
+#### Leaderboard Page
+![](prototypes/leaderboard.png)
 
 
-### Data
+
+### Data (Optional)
 
 ![](prototypes/data-tables.png)
 
@@ -114,7 +198,7 @@ Phase 2 features:
 | GET    | /api/quiz        | Fetch a set of 10 quiz questions                      | Phase 1 |
 | POST   | /api/quiz/submit | Submit quiz answers and get score and ranking         | Phase 1 |
 | POST   | /api/quiz/add    | Allow users to add new slang terms and quiz questions | Phase 1 |
-| GET    | /api/leaderboard | Fetch top-ranked users                                | Phase 2 |
+| GET    | /api/leaderboard | Fetch top-ranked users                                | Phase 1 |
 | POST   | /api/auth/signup | Register a new user                                   | Phase 2 |
 | POST   | /api/auth/login  | Log in an existing user                               | Phase 2 |
 
@@ -124,34 +208,9 @@ Phase 2 features:
 
 Parameters:
 
-- Difficulty (optional): A string representing the difficulty level of the quiz (e.g., "Easy", "Intermediate", "Advanced").
+- Difficulty: A string representing the difficulty level of the quiz (e.g., "Easy", "Intermediate", "Advanced").
 
-Example Request (If `difficulty` is omitted):
-
-- `GET /api/quiz`
-
-Success Response (200):
-
-```
-[
-    {
-        "id": 1,
-        "question": "What does 'no cap' mean?",
-        "options": ["No lie", "No hat", "No joke", "No problem"],
-        "correctOption": null,
-        "difficulty": "Easy"
-    },
-    {
-        "id": 2,
-        "question": "What does 'FOMO' stand for?",
-        "options": ["Fear of missing out", "Feeling of mustering out", "Fast out, move on", "Fun over, move out"],
-        "correctOption": null,
-        "difficulty": "Intermediate"
-    }
-]
-```
-
-Example Request (If `difficulty` is provided):
+Example Request :
 
 - `GET /api/quiz?difficulty=Intermediate`
 
@@ -172,13 +231,6 @@ Success Response (200):
             "options": ["Suspicious", "Sustainable", "Surprised", "Super"],
             "correctOption": null,
             "difficulty": "Intermediate"
-        },
-        {
-            "id": 3,
-            "question": "What does 'lit' mean?",
-            "options": ["Exciting", "Burning", "Boring", "Dangerous"],
-            "correctOption": null,
-            "difficulty": "Easy"
         }
 ]
 ```
@@ -308,6 +360,48 @@ Error Response (500 - Internal Server Error):
 }
 ```
 
+**POST /api/leaderboard**
+
+- Retrieve the top 10 scores for a specified difficulty level.
+
+Parameters (Request Body):
+
+- `difficulty`: The difficulty level of the leaderboard to retrieve. Choose from "Easy", "Intermediate", and "Advanced".
+
+Example Request Body:
+
+```
+GET /api/leaderboard?difficulty=Easy
+```
+
+Success Response (200):
+
+```
+{
+    "leaderboard": [
+        { "username": "Player1", "score": 9 },
+        { "username": "Player2", "score": 8 },
+        ...
+    ]
+}
+```
+
+Error Response (400 - Bad Request):
+
+```
+{
+    "error": "Invalid or missing difficulty level"
+}
+```
+
+Error Response (500 - Internal Server Error):
+
+```
+{
+    "error": "Failed to fetch leaderboard data"
+}
+```
+
 ## Roadmap
 
 - Project Setup
@@ -340,17 +434,17 @@ Error Response (500 - Internal Server Error):
 
 ## Future  Implementations
 
+- Leverage AI tools to tailor learning experience, as well as provide content assistance for new quiz creation
 - Desktop and Tablet responsive views
-- Results with playing ranking: Shows the user's score, and their ranking compared to historical players.
-- Screening of sensitive / inappropriate / violent words
-- Daily Slang: Introduce a "Gen Z Slang of the Day" feature, providing users with a new slang term to learn each day.
+- Enable the screening of sensitive / inappropriate / violent words
+- Introduce a "Slang of the Day" feature, providing users with a new slang term to learn each day.
 - Authorization and User Login using JWT auth
   - Before adding auth, all API requests will be using a fake user with id 1
   - Added after core features have first been implemented
   - Store JWT in localStorage, remove when a user logs out
   - Add states for logged in showing different UI in places listed in mockups
 - Profile Page: Displays the user's quiz history and personal statistics.
-- Leaderboard Page: Displays top user scores and rankings by user profiles.
-- Social Sharing: Add functionality for users to share their scores on social media platforms.
 - Forgot password functionality
+- Leaderboard Page: Displays top (logged in)user scores and rankings by user profiles.
+- Social Sharing: Add functionality for users to share their scores on social media platforms.
 - Mobile App: Develop a mobile version of the app for iOS and Android to reach a broader audience.

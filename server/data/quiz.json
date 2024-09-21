@@ -1103,5 +1103,18 @@
     ],
     "correctOption": "Suspicious or suspect",
     "difficulty": "Easy"
+  },
+  {
+    "id": 86,
+    "slang": "TBH",
+    "question": "What does \"TBH\" mean?",
+    "options": [
+      "Too busy here",
+      "To be hyped",
+      "Take back help",
+      "To be honest"
+    ],
+    "correctOption": "To be honest",
+    "difficulty": "Easy"
   }
 ]
