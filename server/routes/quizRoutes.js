@@ -83,7 +83,7 @@ router.post('/quiz/submit', async (req, res) => {
 
     const response = {
       score: score,
-      comment: result.comment,
+      comment: result ? result.comment : 'Great job!', // Handle case when no comment is found
       percentile: percentile
     };
 
@@ -92,5 +92,6 @@ router.post('/quiz/submit', async (req, res) => {
     res.status(500).json({ error: 'Failed to submit answers and calculate score' });
   }
 });
+
 
 export default router;
