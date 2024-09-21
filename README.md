@@ -163,7 +163,7 @@ Success Response (200):
             "id": 1,
             "question": "What does 'no cap' mean?",
             "options": ["No lie", "No hat", "No joke", "No problem"],
-            "correctOption": null,  // Correct option hidden from the user
+            "correctOption": null,
             "difficulty": "Intermediate"
         },
         {
@@ -221,7 +221,7 @@ Success Response (200):
 
 ```
 {
-    "score": 2,  // Number of correct answers out of 10
+    "score": 2,  
     "ranking": "Top 10%",
     "correctAnswers": [
         { "questionId": 1, "correctOption": "No lie" },
