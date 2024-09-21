@@ -1,41 +1,82 @@
 @use './variables' as *;
 
 @font-face {
-    font-family: 'Avenir';
+    font-family: 'ChakraPetch';
     src: 
-    url('../assets/fonts/AvenirNextLTPro-Bold.otf') format('opentype'), 
-    url('../assets/fonts/AvenirNextLTProBold.ttf') format('truetype');
+    url('src/assets/fonts/ChakraPetch-Bold.ttf') format('truetype');
     font-weight: $font-weight-bold;
     font-style: normal;
     font-display: wrap;
 }
 
 @font-face {
-    font-family: 'Avenir';
-    src: url('../assets/fonts/AvenirNextLTPro-Demi.otf') format('opentype'), 
-    url('../assets/fonts/AvenirNextLTProDemi.ttf') format('truetype');
+    font-family: 'ChakraPetch';
+    src: 
+    url('src/assets/fonts/ChakraPetch-Medium.ttf') format('truetype');
     font-weight: $font-weight-demi;
     font-style: normal;
     font-display: wrap;
 }
 
 @font-face {
-    font-family: 'Avenir';
-    src: url('../assets/fonts/AvenirNextLTPro-Regular.otf') format('opentype'), 
-    url('../assets/fonts/AvenirNextLTPro.ttf') format('truetype');
+    font-family: 'ChakraPetch';
+    src: 
+    url('src/assets/fonts/ChakraPetch-Regular.ttf') format('truetype');
     font-weight: $font-weight-regular;
     font-style: normal;
     font-display: wrap;
 }
 
 body, input, textarea, button {
-    font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'ChakraPetch','Avenir', 'Helvetica', 'Arial', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'ChakraPetch','Avenir', 'Helvetica', 'Arial', sans-serif;
 }
 
 p, span, a, div {
-    font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'ChakraPetch','Avenir', 'Helvetica', 'Arial', sans-serif;
 }
+
+
+
+// @font-face {
+//     font-family: 'Avenir';
+//     src: 
+//     url('../assets/fonts/AvenirNextLTPro-Bold.otf') format('opentype'), 
+//     url('../assets/fonts/AvenirNextLTProBold.ttf') format('truetype');
+//     font-weight: $font-weight-bold;
+//     font-style: normal;
+//     font-display: wrap;
+// }
+
+// @font-face {
+//     font-family: 'Avenir';
+//     src: url('../assets/fonts/AvenirNextLTPro-Demi.otf') format('opentype'), 
+//     url('../assets/fonts/AvenirNextLTProDemi.ttf') format('truetype');
+//     font-weight: $font-weight-demi;
+//     font-style: normal;
+//     font-display: wrap;
+// }
+
+// @font-face {
+//     font-family: 'Avenir';
+//     src: url('../assets/fonts/AvenirNextLTPro-Regular.otf') format('opentype'), 
+//     url('../assets/fonts/AvenirNextLTPro.ttf') format('truetype');
+//     font-weight: $font-weight-regular;
+//     font-style: normal;
+//     font-display: wrap;
+// }
+
+// body, input, textarea, button {
+//     font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+// }
+
+// h1, h2, h3, h4, h5, h6 {
+//     font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+// }
+
+// p, span, a, div {
+//     font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+// }
