@@ -4,7 +4,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .multiple-choice-option {
-  padding: 12px;
+  padding: 0 12px;
   border-radius: $input-field-border-radius;
   border: 1px solid $inactive-input-field-outline-color;
   background-color: $input-field-background-color;

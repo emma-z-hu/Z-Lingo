@@ -14,12 +14,41 @@ const AddQuizPage = () => {
   const [trickAnswers, setTrickAnswers] = useState(["", "", ""]);
   const [difficulty, setDifficulty] = useState(null);
   const [error, setError] = useState("");
+  const [slangError, setSlangError] = useState(""); // Error state for slang word
+  const [loadingIdeas, setLoadingIdeas] = useState(false); // Loading state for trick answers
   const navigate = useNavigate();
+
+  const handleSlangChange = (value) => {
+    setSlang(value);
+    if (value.trim() !== "") {
+      setSlangError(""); // Clear slang error when user inputs a slang word
+    }
+  };
 
   const handleTrickAnswerChange = (index, value) => {
     const updatedTrickAnswers = [...trickAnswers];
     updatedTrickAnswers[index] = value;
     setTrickAnswers(updatedTrickAnswers);
+  };
+
+  const handleGenerateIdeas = () => {
+    if (!slang.trim()) {
+      setSlangError("Please enter a slang word to generate trick answers."); // Show error message under slang input field
+      return;
+    }
+
+    setLoadingIdeas(true);
+    axios
+      .post(`${API_URL}/api/openai/get-trick-answers`, { slangWord: slang })
+      .then((response) => {
+        setTrickAnswers(response.data.trickAnswers);
+        setLoadingIdeas(false);
+      })
+      .catch((error) => {
+        console.error("Failed to generate trick answers:", error);
+        setError("Failed to generate trick answers. Please try again.");
+        setLoadingIdeas(false);
+      });
   };
 
   const handleSubmit = () => {
@@ -64,9 +93,10 @@ const AddQuizPage = () => {
         <InputField
           label="Slang Word"
           value={slang}
-          onChange={(e) => setSlang(e.target.value)}
+          onChange={(e) => handleSlangChange(e.target.value)} // Use handleSlangChange to update slang and handle error
           placeholder="Enter the slang word"
         />
+        {slangError && <p className="add-quiz-page__error--slang">{slangError}</p>} {/* Display slang error message */}
 
         <InputField
           label="Correct Meaning"
@@ -76,7 +106,15 @@ const AddQuizPage = () => {
         />
 
         <label>Trick Answers</label>
-        <div className="add-quiz-page__form--trick-answers">
+        <button
+          className="add-quiz-page__trick-answers--generate"
+          onClick={handleGenerateIdeas}
+          disabled={loadingIdeas}
+        >
+          {loadingIdeas ? "Generating..." : "Give me some ideas"}
+        </button>
+
+        <div className="add-quiz-page__trick-answers--options">
           {trickAnswers.map((answer, index) => (
             <InputField
               key={index}
@@ -110,7 +148,7 @@ const AddQuizPage = () => {
             </button>
           </div>
         </div>
-        {error && <p className="add-quiz-page__error">{error}</p>}
+        {error && <p className="add-quiz-page__error">{error}</p>} {/* Display form error */}
       </div>
       <div className="add-quiz-page__cta">
         <PrimaryCTA label="Submit" onClick={handleSubmit} />
