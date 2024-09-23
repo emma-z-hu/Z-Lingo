@@ -30,12 +30,12 @@ const HomePage = () => {
     let isError = false;
 
     if (!nickname.trim()) {
-      setNicknameError('Enter your nickname to start the quiz.');
+      setNicknameError('⚠️ Enter your nickname to start the quiz.');
       isError = true;
     }
 
     if (!difficulty) {
-      setDifficultyError('Select a difficulty level to start the quiz.');
+      setDifficultyError('⚠️ Select a difficulty level to start the quiz.');
       isError = true;
     }
 
@@ -49,7 +49,7 @@ const HomePage = () => {
     if (difficulty) {
       navigate(`/leaderboard?difficulty=${difficulty}`); 
     } else {
-      setDifficultyError('Select a difficulty level to see the leaderboard.');
+      setDifficultyError('⚠️ Select a difficulty level to see the leaderboard.');
     }
   };
 

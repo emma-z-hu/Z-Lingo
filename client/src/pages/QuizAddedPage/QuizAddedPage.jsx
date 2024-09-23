@@ -20,7 +20,7 @@ const QuizAddedPage = () => {
     <div className="quiz-added-page">
       <h1 className="quiz-added-page__title">Quiz Successfully Added!</h1>
       <p className="quiz-added-page__message">
-        Your quiz has been successfully added to the database. You can add another quiz or return to the home page.
+        Your quiz has been successfully added to the database. Thank you for contributing to Z-Lingo!
       </p>
       <img 
         src={ThankYouImage}
@@ -28,8 +28,8 @@ const QuizAddedPage = () => {
         className="quiz-added-page__image"
       />
       <div className="quiz-added-page__cta">
-        <PrimaryCTA label="Add another quiz" onClick={handleAddAnotherQuiz} />
-        <SecondaryCTA label="Back to Home page" onClick={handleBackToHome} />
+        <PrimaryCTA label="Add Another Quiz" onClick={handleAddAnotherQuiz} />
+        <SecondaryCTA label="Back to Home Page" onClick={handleBackToHome} />
       </div>
     </div>
   );

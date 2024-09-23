@@ -29,8 +29,8 @@ body {
     label {
       display: flex;
       flex-direction: column;
-      margin-top: $mobile-padding-before-headlines;
-      margin-bottom: $mobile-padding-after-headlines;
+      margin-top: $increment*2;
+      margin-bottom: $increment;
     }
 
     &--trick-answers {
@@ -41,32 +41,33 @@ body {
   }
 
   &__trick-answers--generate {
-    margin-top: 16px;
-    padding: 12px;
     border-radius: $cta-border-radius;
-    background-color: $primary-cta-default-background-color;
-    color: $primary-cta-default-text-color;
-    border: 2px solid $primary-cta-default-border-color;
+    background-color: $secondary-cta-default-background-color;
+    color: $secondary-cta-default-text-color;
+    border: 2px solid $secondary-cta-default-border-color;
     cursor: pointer;
     font-size: $mobile-body-text-size;
     transition: background-color 0.3s ease;
+    width: 50%;
+    height: 50%;
 
     &:disabled {
       background-color: $inactive-button-background-color;
       color: $inactive-button-text-color;
+      border-color: $inactive-button-text-color;
       cursor: not-allowed;
     }
 
     &:hover:not(:disabled) {
-      background-color: $primary-cta-hover-background-color;
-      border-color: $primary-cta-hover-border-color;
-      color: $primary-cta-hover-text-color;
+      background-color: $secondary-cta-hover-background-color;
+      border-color: $secondary-cta-hover-border-color;
+      color: $secondary-cta-hover-text-color;
     }
 
     &:active:not(:disabled) {
-      background-color: $primary-cta-active-background-color;
-      border-color: $primary-cta-active-border-color;
-      color: $primary-cta-active-text-color;
+      background-color: $secondary-cta-active-background-color;
+      border-color: $secondary-cta-hover-border-color;
+      color: $secondary-cta-active-text-color;
     }
   }
 
@@ -128,7 +129,7 @@ body {
   &__error--slang {
     color: grey;
     font-size: $mobile-body-text-size;
-    margin-top: 4px;
+    margin-top: $increment;
     margin-bottom: 0;
   }
 }

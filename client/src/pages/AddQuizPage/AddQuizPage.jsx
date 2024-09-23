@@ -14,14 +14,14 @@ const AddQuizPage = () => {
   const [trickAnswers, setTrickAnswers] = useState(["", "", ""]);
   const [difficulty, setDifficulty] = useState(null);
   const [error, setError] = useState("");
-  const [slangError, setSlangError] = useState(""); // Error state for slang word
-  const [loadingIdeas, setLoadingIdeas] = useState(false); // Loading state for trick answers
+  const [slangError, setSlangError] = useState(""); 
+  const [loadingIdeas, setLoadingIdeas] = useState(false); 
   const navigate = useNavigate();
 
   const handleSlangChange = (value) => {
     setSlang(value);
     if (value.trim() !== "") {
-      setSlangError(""); // Clear slang error when user inputs a slang word
+      setSlangError(""); 
     }
   };
 
@@ -33,7 +33,7 @@ const AddQuizPage = () => {
 
   const handleGenerateIdeas = () => {
     if (!slang.trim()) {
-      setSlangError("Please enter a slang word to generate trick answers."); // Show error message under slang input field
+      setSlangError("⚠️ Please enter a slang word first"); 
       return;
     }
 
@@ -46,7 +46,7 @@ const AddQuizPage = () => {
       })
       .catch((error) => {
         console.error("Failed to generate trick answers:", error);
-        setError("Failed to generate trick answers. Please try again.");
+        setError("⚠️ Failed to generate trick answers. Please try again.");
         setLoadingIdeas(false);
       });
   };
@@ -58,7 +58,7 @@ const AddQuizPage = () => {
       trickAnswers.some((answer) => answer === "") ||
       !difficulty
     ) {
-      setError("Please fill in all fields and select a difficulty level.");
+      setError("⚠️ Please fill in all fields and select a difficulty level.");
       return;
     }
 
@@ -77,7 +77,7 @@ const AddQuizPage = () => {
       })
       .catch((error) => {
         console.error("Failed to add quiz:", error);
-        setError("Failed to add quiz. Please try again.");
+        setError("⚠️ Failed to add quiz. Please try again.");
       });
   };
 
@@ -93,10 +93,10 @@ const AddQuizPage = () => {
         <InputField
           label="Slang Word"
           value={slang}
-          onChange={(e) => handleSlangChange(e.target.value)} // Use handleSlangChange to update slang and handle error
+          onChange={(e) => handleSlangChange(e.target.value)} 
           placeholder="Enter the slang word"
         />
-        {slangError && <p className="add-quiz-page__error--slang">{slangError}</p>} {/* Display slang error message */}
+        {slangError && <p className="add-quiz-page__error--slang">{slangError}</p>} 
 
         <InputField
           label="Correct Meaning"
@@ -148,7 +148,7 @@ const AddQuizPage = () => {
             </button>
           </div>
         </div>
-        {error && <p className="add-quiz-page__error">{error}</p>} {/* Display form error */}
+        {error && <p className="add-quiz-page__error">{error}</p>}
       </div>
       <div className="add-quiz-page__cta">
         <PrimaryCTA label="Submit" onClick={handleSubmit} />
