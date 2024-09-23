@@ -10,10 +10,10 @@ Z-Lingo
 placeholder url
 ```
 
-
 ### Alternatively, to run it locally:
 
 #### Step 1: Clone the Repository
+
 First, clone the repository to your local machine using the following command:
 
 ```
@@ -27,12 +27,12 @@ cd emma-hu-z-lingo
 ```
 
 #### Step 2: Set Up the Backend
+
 Navigate to the server directory:
 
 ```
 cd server/
 ```
-
 
 Install the required dependencies:
 
@@ -40,13 +40,13 @@ Install the required dependencies:
 npm install
 ```
 
-
 Set up the environment variables. Create a .env file in the server directory with the following content:
+
 ```
 PORT=8080
 CORS_ORIGIN=http://localhost:5173
+OPENAI_API_KEY=your_openai_api_key_here
 ```
-You can modify the port if needed.
 
 Start the backend server:
 
@@ -57,24 +57,26 @@ npm start
 The server should start on the specified port (default is 8080).
 
 #### Step 3: Set Up the Frontend
+
 Navigate to the client directory:
+
 ```
 cd ../client
 ```
 
 Install the required dependencies:
+
 ```
 npm install
 ```
 
 Start the frontend development server:
+
 ```
 npm run dev
 ```
 
 The frontend should now be running at http://localhost:5173 .
-
-
 
 ## Overview
 
@@ -135,24 +137,23 @@ Phase 2 features:
 ### APIs
 
 - Custom API: A custom-built API will manage user data, quiz content, scoring, and rankings.
-- External API (Optional): 
-i) An external API providing a repository of Gen Z slang and their definitions may be integrated to seed the quiz database. For the MVP, the content will primarily be internally curated. ii) An OpenAI API providing tailored learning experience, as well as content assistance for new quiz creation.
+- External API: An OpenAI API providing tailored learning experience, as well as content assistance for new quiz creation.
 
 ### Sitemap
 
-- Home Page: Introduction to Z-Lingo and  call-to-actions to start the quiz / see the leaderboard / add a new quiz.
+- Home Page: Introduction to Z-Lingo and call-to-actions to start the quiz / see the leaderboard / add a new quiz.
 - Quiz Page: Displays 10 multiple-choice questions for the user to answer, based on the difficulty level selected.
 - Quiz Results Page: Shows the user's score, percentile, and comments. Call-to-actions to start another quiz / see the leaderboard / return to home page.
-- Create A Quiz Page: Allows user to contribute new slang terms and create quiz questions to add to the quiz inventory.
+- Create A Quiz Page: Allows user to contribute new slang terms and create quiz questions to add to the quiz inventory, with the integration of OpenAI API.
 - Quiz Added Page: Confirms quiz has been added, with call-to-actions to add another quiz or return to home page.
 - Leaderboard Page: Shows the top 10 scores,and the username for the difficulty level selected, with call-to-action to return to home page.
-
 
 ### Mockups
 
 #### Phase 1
 
 #### Home Page
+
 ![](prototypes/home.png)
 
 #### Quiz Page
@@ -171,36 +172,39 @@ i) An external API providing a repository of Gen Z slang and their definitions m
 ![](prototypes/add-new-quiz-filled.png)
 
 #### Quiz Added Page
+
 ![](prototypes/new-quiz-added.png)
 
 #### Leaderboard Page
+
 ![](prototypes/leaderboard.png)
-
-
 
 ### Data (Optional)
 
 ![](prototypes/data-tables.png)
 
 #### Relationships:
+
 - Users → UserResponses:
-    - One user can have many responses.
-    - A foreign key (user_id) in the UserResponses table references the primary key (id) of the Users table.
+
+  - One user can have many responses.
+  - A foreign key (user_id) in the UserResponses table references the primary key (id) of the Users table.
 
 - QuizQuestions → UserResponses:
-    - One quiz question can have many user responses.
-    - A foreign key (question_id) in the UserResponses table references the primary key (id) of the QuizQuestions table.
+  - One quiz question can have many user responses.
+  - A foreign key (question_id) in the UserResponses table references the primary key (id) of the QuizQuestions table.
 
 ### Endpoints
 
-| Method | Endpoint         | Purpose                                               |  Phase  |
-| :----- | :--------------- | :---------------------------------------------------- | :-----: |
-| GET    | /api/quiz        | Fetch a set of 10 quiz questions                      | Phase 1 |
-| POST   | /api/quiz/submit | Submit quiz answers and get score and ranking         | Phase 1 |
-| POST   | /api/quiz/add    | Allow users to add new slang terms and quiz questions | Phase 1 |
-| GET    | /api/leaderboard | Fetch top-ranked users                                | Phase 1 |
-| POST   | /api/auth/signup | Register a new user                                   | Phase 2 |
-| POST   | /api/auth/login  | Log in an existing user                               | Phase 2 |
+| Method | Endpoint                       | Purpose                                               |  Phase  |
+| :----- | :----------------------------- | :---------------------------------------------------- | :-----: |
+| GET    | /api/quiz                      | Fetch a set of 10 quiz questions                      | Phase 1 |
+| POST   | /api/quiz/submit               | Submit quiz answers and get score and ranking         | Phase 1 |
+| POST   | /api/quiz/add                  | Allow users to add new slang terms and quiz questions | Phase 1 |
+| GET    | /api/leaderboard               | Fetch top-ranked users                                | Phase 1 |
+| POST   | /api/openai//get-trick-answers | Fetch AI generated trick answers users                | Phase 1 |
+| POST   | /api/auth/signup               | Register a new user                                   | Phase 2 |
+| POST   | /api/auth/login                | Log in an existing user                               | Phase 2 |
 
 **GET /api/quiz**
 
@@ -273,7 +277,7 @@ Success Response (200):
 
 ```
 {
-    "score": 2,  
+    "score": 2,
     "ranking": "Top 10%",
     "correctAnswers": [
         { "questionId": 1, "correctOption": "No lie" },
@@ -300,7 +304,6 @@ Parameters (Request Body):
 - `options`: An array of exactly 4 possible meanings for the slang term.
 - `correctOption`: The correct meaning of the slang (e.g., "To be honest"). The correct option must be one of the provided options.
 - `difficulty`: The difficulty level of this question. Choose from "Easy", "Intermediate", and "Advanced"
-
 
 Example Request Body:
 
@@ -402,6 +405,55 @@ Error Response (500 - Internal Server Error):
 }
 ```
 
+**POST /api/openai/get-trick-answers**
+
+- Allows users to get three incorrect meanings for a given slang word. This can be used to create trick quiz questions or for any other purpose requiring false definitions.
+
+Parameters (Request Body):
+
+- `slangWord`: The slang term for which the incorrect meanings are to be generated (e.g., "YOLO").
+
+Example Request Body:
+
+```
+{
+  "slangWord": "YOLO"
+}
+```
+
+Success Response (200):
+
+```
+{
+  "trickAnswers": [
+    "You Only Live Once",
+    "Yankees Only Lose Once",
+    "Young Owls Love Oranges"
+  ]
+}
+```
+
+Error Response (400 - Bad Request):
+
+- When slangWord is not provided in the request body.
+
+```
+{
+    "error": "Slang word is required"
+
+}
+```
+
+Error Response (500 - Internal Server Error):
+
+- For any server-side issues when attempting to generate the trick answers.
+
+```
+{
+    "error": "Failed to generate trick answers"
+}
+```
+
 ## Roadmap
 
 - Project Setup
@@ -413,6 +465,7 @@ Error Response (500 - Internal Server Error):
 - Backend Development
 
   - Develop API endpoints for quizzes, user management, and scoring.
+  - Develop OpenAI endpoints for fetching trick answers
 
 - Frontend Development
 
@@ -422,7 +475,8 @@ Error Response (500 - Internal Server Error):
   - Implement basic navigation (home, quiz, results).
 
 - Database Setup (Optional)
-    - Set up the MySQL database schema.
+
+  - Set up the MySQL database schema.
 
 - Testing and Finalization
 
@@ -432,9 +486,8 @@ Error Response (500 - Internal Server Error):
 
 - Demo
 
-## Future  Implementations
+## Future Implementations
 
-- Leverage AI tools to tailor learning experience, as well as provide content assistance for new quiz creation
 - Desktop and Tablet responsive views
 - Enable the screening of sensitive / inappropriate / violent words
 - Introduce a "Slang of the Day" feature, providing users with a new slang term to learn each day.

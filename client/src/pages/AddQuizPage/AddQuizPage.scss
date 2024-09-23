@@ -31,6 +31,7 @@ body {
       flex-direction: column;
       margin-top: $increment*2;
       margin-bottom: $increment;
+      font-size: $mobile-body-text-size;
     }
 
     &--trick-answers {
