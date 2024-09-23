@@ -65,8 +65,8 @@ const QuizResultPage = () => {
       <img className="quiz-result-page__meme" src={scoreImages[score]} alt={`Score ${score} Meme`} />
 
       <div className="quiz-result-page__cta">
-        <PrimaryCTA label="Start another quiz" onClick={handleStartAnotherQuiz} />
-        <SecondaryCTA label="Back to Home page" onClick={handleBackToHome} />
+        <PrimaryCTA label="Start Another Quiz" onClick={handleStartAnotherQuiz} />
+        <SecondaryCTA label="Back to Home Page" onClick={handleBackToHome} />
       </div>
     </div>
   );
