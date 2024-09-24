@@ -55,6 +55,10 @@
     }
   }
 
+  &__bottom-section {
+    margin-bottom: 50px;
+  }
+  
   &__back-home {
     color:$title-text-color;
     font-weight: $font-weight-demi;
