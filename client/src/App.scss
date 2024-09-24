@@ -19,8 +19,8 @@ html, body, #root {
   #root {
     height: 100%;
     width: 100%;
-    max-width: $mobile-screen-width; 
-    max-height: $mobile-screen-height; 
+    min-width: $mobile-screen-width; 
+    min-height: $mobile-screen-height; 
     // overflow: hidden; 
     // border: 1px solid #ccc; 
     // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
