@@ -134,12 +134,12 @@
     "slang": "Glow up",
     "question": "What does 'Glow up' mean?",
     "options": [
-      "An impressive transformation",
+      "An glowy transformation",
       "To become famous",
-      "To start shining",
+      "To start shiny",
       "To achieve enlightenment"
     ],
-    "correctOption": "An impressive transformation",
+    "correctOption": "An glowy transformation",
     "difficulty": "Easy"
   },
   {
@@ -173,12 +173,12 @@
     "slang": "Stan",
     "question": "What does 'Stan' mean?",
     "options": [
-      "An obsessive supporter",
+      "A firm supporter",
       "A dedicated critic",
       "A random stranger",
       "A casual observer"
     ],
-    "correctOption": "An obsessive supporter",
+    "correctOption": "A firm supporter",
     "difficulty": "Intermediate"
   },
   {
@@ -212,12 +212,12 @@
     "slang": "Ghosting",
     "question": "What does 'Ghosting' mean?",
     "options": [
-      "Cutting off communication without explanation",
+      "Cutting off communication",
       "Joining a ghost hunt",
       "Sending anonymous messages",
       "Playing hide and seek"
     ],
-    "correctOption": "Cutting off communication without explanation",
+    "correctOption": "Cutting off communication",
     "difficulty": "Easy"
   },
   {
@@ -225,12 +225,12 @@
     "slang": "Dank",
     "question": "What does 'Dank' mean?",
     "options": [
-      "Really good or high quality",
+      "High quality",
       "Unpleasantly moist",
       "Hard to find",
       "Extremely dark"
     ],
-    "correctOption": "Really good or high quality",
+    "correctOption": "High quality",
     "difficulty": "Advanced"
   },
   {
@@ -290,12 +290,12 @@
     "slang": "High-key",
     "question": "What does 'High-key' mean?",
     "options": [
-      "Very openly or obviously",
+      "Very openly",
       "Subtly hinting",
       "Slightly visible",
       "Barely noticeable"
     ],
-    "correctOption": "Very openly or obviously",
+    "correctOption": "Very openly",
     "difficulty": "Intermediate"
   },
   {
@@ -303,12 +303,12 @@
     "slang": "Simp",
     "question": "What does 'Simp' mean?",
     "options": [
-      "Overly submissive or attentive to someone",
+      "Overly attentive to someone",
       "Being overly critical",
       "Avoiding commitment",
       "Having strong opinions"
     ],
-    "correctOption": "Overly submissive or attentive to someone",
+    "correctOption": "Overly attentive to someone",
     "difficulty": "Advanced"
   },
   {
@@ -316,12 +316,12 @@
     "slang": "Cheugy",
     "question": "What does 'Cheugy' mean?",
     "options": [
-      "Uncool or outdated",
+      "Uncool",
       "Trendy",
       "Extremely popular",
       "Mysterious"
     ],
-    "correctOption": "Uncool or outdated",
+    "correctOption": "Uncool",
     "difficulty": "Intermediate"
   },
   {
@@ -329,12 +329,12 @@
     "slang": "Camp",
     "question": "What does 'Camp' mean?",
     "options": [
-      "Over-the-top and exaggerated style",
+      "Over-the-top style",
       "Outdoor activity",
       "A base of operations",
       "A temporary arrangement"
     ],
-    "correctOption": "Over-the-top and exaggerated style",
+    "correctOption": "Over-the-top style",
     "difficulty": "Intermediate"
   },
   {
@@ -381,12 +381,12 @@
     "slang": "Take Several Seats",
     "question": "What does 'Take Several Seats' mean?",
     "options": [
-      "Calm down and stop being overconfident",
+      "Stop being overconfident",
       "Sit in a row",
       "Take a back seat",
       "Leave the room"
     ],
-    "correctOption": "Calm down and stop being overconfident",
+    "correctOption": "Stop being overconfident",
     "difficulty": "Advanced"
   },
   {
@@ -421,7 +421,7 @@
     "question": "What does 'Sheesh' mean?",
     "options": [
       "Expressing disbelief or excitement",
-      "Expressing anger",
+      "Expressing anger or disgustion",
       "Agreeing with someone",
       "Making a joke"
     ],
@@ -446,12 +446,12 @@
     "slang": "Rent free living",
     "question": "What does 'Rent free living' mean?",
     "options": [
-      "Occupying someone's thoughts effortlessly",
+      "Occupying someone's thoughts",
       "Living without paying rent",
       "Living in a communal space",
       "Living carefree"
     ],
-    "correctOption": "Occupying someone's thoughts effortlessly",
+    "correctOption": "Occupying someone's thoughts",
     "difficulty": "Intermediate"
   },
   {
@@ -485,12 +485,12 @@
     "slang": "Vibe check",
     "question": "What does 'Vibe check' mean?",
     "options": [
-      "Assessing the atmosphere or mood",
+      "Assessing the atmosphere",
       "Hosting an event",
       "Looking at the time",
       "Greeting someone"
     ],
-    "correctOption": "Assessing the atmosphere or mood",
+    "correctOption": "Assessing the atmosphere",
     "difficulty": "Easy"
   },
   {
@@ -511,12 +511,12 @@
     "slang": "Period",
     "question": "What does 'Period' mean?",
     "options": [
-      "Adding emphasis or finality",
+      "Adding emphasis",
       "End of a statement",
       "Marking a pause",
       "Defining a moment"
     ],
-    "correctOption": "Adding emphasis or finality",
+    "correctOption": "Adding emphasis",
     "difficulty": "Easy"
   },
   {
@@ -524,12 +524,12 @@
     "slang": "Finesse",
     "question": "What does 'Finesse' mean?",
     "options": [
-      "Skillfully trick or manipulate",
+      "Skillfully manipulate",
       "Move gracefully",
       "Handle gently",
       "Act quickly"
     ],
-    "correctOption": "Skillfully trick or manipulate",
+    "correctOption": "Skillfully manipulate",
     "difficulty": "Advanced"
   },
   {
@@ -550,12 +550,12 @@
     "slang": "I am Weak",
     "question": "What does 'I am Weak' mean?",
     "options": [
-      "Finding something extremely funny",
+      "Finding something very funny",
       "Feeling physically exhausted",
       "Being emotionally fragile",
       "Losing control"
     ],
-    "correctOption": "Finding something extremely funny",
+    "correctOption": "Finding something very funny",
     "difficulty": "Intermediate"
   },
   {
@@ -602,12 +602,12 @@
     "slang": "Tea",
     "question": "What does 'Tea' mean?",
     "options": [
-      "Juicy gossip or information",
+      "Juicy gossip",
       "A fancy drink",
       "A casual meeting",
       "Something bitter"
     ],
-    "correctOption": "Juicy gossip or information",
+    "correctOption": "Juicy gossip",
     "difficulty": "Easy"
   },
   {
@@ -654,12 +654,12 @@
     "slang": "Receipts",
     "question": "What does 'Receipts' mean?",
     "options": [
-      "Proof or evidence of an event",
+      "Proof of an event",
       "Financial documents",
       "Items purchased",
       "Payment owed"
     ],
-    "correctOption": "Proof or evidence of an event",
+    "correctOption": "Proof of an event",
     "difficulty": "Advanced"
   },
   {
@@ -810,12 +810,12 @@
     "slang": "Thicc",
     "question": "What does 'Thicc' mean?",
     "options": [
-      "A person with a full and curvy figure",
+      "A person with a curvy figure",
       "Having thick skin",
       "A dense forest",
       "Being tough"
     ],
-    "correctOption": "A person with a full and curvy figure",
+    "correctOption": "A person with a curvy figure",
     "difficulty": "Intermediate"
   },
   {
@@ -849,12 +849,12 @@
     "slang": "Flex",
     "question": "What does 'Flex' mean?",
     "options": [
-      "To boast or show off",
+      "To show off",
       "To stretch out",
       "To look strong",
       "To change appearance"
     ],
-    "correctOption": "To boast or show off",
+    "correctOption": "To show off",
     "difficulty": "Easy"
   },
   {
@@ -862,12 +862,12 @@
     "slang": "Cuffing season",
     "question": "What does 'Cuffing season' mean?",
     "options": [
-      "Period during colder months when people seek relationships",
+      "Colder months when people seek relationships",
       "A time for outdoor activities",
       "When fashion changes drastically",
       "A period of constant traveling"
     ],
-    "correctOption": "Period during colder months when people seek relationships",
+    "correctOption": "Colder months when people seek relationships",
     "difficulty": "Intermediate"
   },
   {
@@ -888,12 +888,12 @@
     "slang": "Karen",
     "question": "What does 'Karen' mean in slang?",
     "options": [
-      "A demanding or entitled person",
+      "An entitled person",
       "A friendly person",
       "A teacher",
       "A random stranger"
     ],
-    "correctOption": "A demanding or entitled person",
+    "correctOption": "An entitled person",
     "difficulty": "Easy"
   },
   {
@@ -979,12 +979,12 @@
     "slang": "Rizz",
     "question": "What does 'Rizz' mean?",
     "options": [
-      "Charisma or ability to flirt",
+      "Charisma to flirt",
       "A type of dance move",
       "A rare item in a game",
       "Feeling excited"
     ],
-    "correctOption": "Charisma or ability to flirt",
+    "correctOption": "Charisma to flirt",
     "difficulty": "Advanced"
   },
   {
@@ -1047,7 +1047,7 @@
       "A private Instagram account for close friends",
       "Fake internet personality",
       "First Instagram post",
-      "A new social media app"
+      "An Instragram story only visible to close friends"
     ],
     "correctOption": "A private Instagram account for close friends",
     "difficulty": "Intermediate"
@@ -1057,12 +1057,12 @@
     "slang": "Drippy",
     "question": "What does 'Drippy' mean?",
     "options": [
-      "Stylish or fashionable",
+      "Stylish",
       "Slow and boring",
       "Sad and teary",
       "Wet and cold"
     ],
-    "correctOption": "Stylish or fashionable",
+    "correctOption": "Stylish",
     "difficulty": "Intermediate"
   },
   {
@@ -1083,12 +1083,12 @@
     "slang": "On God",
     "question": "What does 'On God' mean?",
     "options": [
-      "Emphasizing truth or sincerity",
+      "Emphasizing truth",
       "Swearing on something",
       "Feeling angry",
       "Taking an oath"
     ],
-    "correctOption": "Emphasizing truth or sincerity",
+    "correctOption": "Emphasizing truth",
     "difficulty": "Intermediate"
   }
 ]
